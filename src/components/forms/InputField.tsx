@@ -34,7 +34,6 @@ const ErrorMessage = styled.p`
   min-height: 1.45em;
   grid-area: ErrorMessage;
   color: red;
-  font-size: 0.75rem;
 `;
 
 type Props = {

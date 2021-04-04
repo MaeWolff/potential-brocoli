@@ -13,6 +13,7 @@ export default function SignUpForm() {
       initialValues={{
         email: "",
         password: "",
+        passwordConfirmation: "",
       }}
       onSubmit={handleSubmit}
       validationSchema={AuthValidationSchema}
@@ -35,6 +36,15 @@ export default function SignUpForm() {
             label="Mot de passe"
             touched={touched.password}
             error={errors.password}
+          />
+
+          <InputField
+            type="password"
+            name="passwordConfirmation"
+            placeholder="*********"
+            label="Confirmez le mot de passe"
+            touched={touched.passwordConfirmation}
+            error={errors.passwordConfirmation}
           />
 
           <button type="submit">S'inscrire</button>
