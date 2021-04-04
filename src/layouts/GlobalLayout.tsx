@@ -24,7 +24,7 @@ type Props = {
   children: ReactNode;
 };
 
-export default function LandingLayout({ children }: Props) {
+export default function GlobalLayout({ children }: Props) {
   return (
     <Layout>
       <Header />

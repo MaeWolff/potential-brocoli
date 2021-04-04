@@ -4,7 +4,7 @@ import styled from "styled-components";
 import SignInForm from "../components/forms/SignInForm";
 import SignUpForm from "../components/forms/SignUpForm";
 
-import LandingLayout from "../layouts/LandingLayout";
+import GlobalLayout from "../layouts/GlobalLayout";
 
 const Container = styled.div`
   display: grid;
@@ -68,7 +68,7 @@ export default function EnterPage() {
   const [formState, setFormState] = useState(EnterState.SIGN_IN);
 
   return (
-    <LandingLayout>
+    <GlobalLayout>
       <Container>
         <DescriptionContainer />
 
@@ -110,6 +110,6 @@ export default function EnterPage() {
           )}
         </FormContainer>
       </Container>
-    </LandingLayout>
+    </GlobalLayout>
   );
 }
