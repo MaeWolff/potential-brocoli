@@ -41,6 +41,7 @@ a{
 
 html {
   --header-height: 3em;
+  --body-margin: 5em;
 }
 
 

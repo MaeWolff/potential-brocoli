@@ -10,6 +10,7 @@ const HeaderContainer = styled.header`
   height: var(--header-height);
   grid-area: Header;
   width: 100%;
+  padding: 0 var(--body-margin);
 `;
 
 const LinksWrapper = styled.ul`

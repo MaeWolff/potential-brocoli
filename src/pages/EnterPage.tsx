@@ -70,7 +70,7 @@ export default function EnterPage() {
   const [formState, setFormState] = useState(EnterState.SIGN_IN);
 
   return (
-    <GlobalLayout>
+    <GlobalLayout fullWidth>
       <Container>
         <DescriptionContainer />
 
