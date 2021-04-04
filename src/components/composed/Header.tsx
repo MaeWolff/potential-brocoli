@@ -6,6 +6,10 @@ const HeaderContainer = styled.header`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+  grid-area: Header;
+  width: 100%;
 `;
 
 const LinksWrapper = styled.ul`

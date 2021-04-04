@@ -36,9 +36,16 @@ a{
 * {
   box-sizing: border-box;
 }
+
+
+
+html {
+  --header-height: 3em;
+}
+
+
 body {
   width: 100%;
-  padding: 0em 5em;
   min-height: 100vh;
   font-family: 'RedRose';
   color: ${({ theme }) => theme.colors.black};
