@@ -31,7 +31,7 @@ export default function Header() {
         </LinksWrapper>
       </nav>
 
-      <Link to="/login">
+      <Link to="/enter">
         <button>Connexion</button>
       </Link>
     </HeaderContainer>
