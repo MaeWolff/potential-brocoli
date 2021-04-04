@@ -4,6 +4,8 @@ import styled from "styled-components";
 import SignInForm from "../components/forms/SignInForm";
 import SignUpForm from "../components/forms/SignUpForm";
 
+import { Spacer } from "../components/index";
+
 import GlobalLayout from "../layouts/GlobalLayout";
 
 const Container = styled.div`
@@ -80,7 +82,11 @@ export default function EnterPage() {
                 espace Brocoli
               </h1>
 
+              <Spacer axis="vertical" size={2} />
+
               <SignInForm />
+
+              <Spacer axis="vertical" size={1} />
 
               <NoAccount>
                 Vous n'avez pas de compte?{" "}
@@ -98,7 +104,11 @@ export default function EnterPage() {
                 <br /> à l'espace Brocoli
               </h1>
 
+              <Spacer axis="vertical" size={2} />
+
               <SignUpForm />
+
+              <Spacer axis="vertical" size={1} />
 
               <NoAccount>
                 Vous avez déjà un compte?{" "}
