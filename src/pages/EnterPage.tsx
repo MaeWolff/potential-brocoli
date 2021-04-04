@@ -4,10 +4,13 @@ import styled from "styled-components";
 import SignInForm from "../components/forms/SignInForm";
 import SignUpForm from "../components/forms/SignUpForm";
 
+import LandingLayout from "../layouts/LandingLayout";
+
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  min-height: 100vh;
+  min-height: calc(100vh - var(--header-height));
+  width: 100%;
 `;
 
 const DescriptionContainer = styled.div`
@@ -17,6 +20,7 @@ const DescriptionContainer = styled.div`
     #743bd2 0%,
     rgba(117, 59, 211, 0.64) 92.71%
   );
+  width: 100%;
 `;
 
 const FormContainer = styled.div`
@@ -64,46 +68,48 @@ export default function EnterPage() {
   const [formState, setFormState] = useState(EnterState.SIGN_IN);
 
   return (
-    <Container>
-      <DescriptionContainer />
+    <LandingLayout>
+      <Container>
+        <DescriptionContainer />
 
-      <FormContainer>
-        {formState === EnterState.SIGN_IN && (
-          <>
-            <h1>
-              Bienvenue sur votre <br />
-              espace Brocoli
-            </h1>
+        <FormContainer>
+          {formState === EnterState.SIGN_IN && (
+            <>
+              <h1>
+                Bienvenue sur votre <br />
+                espace Brocoli
+              </h1>
 
-            <SignInForm />
+              <SignInForm />
 
-            <NoAccount>
-              Vous n'avez pas de compte?{" "}
-              <span onClick={() => setFormState(EnterState.SIGN_UP)}>
-                Cliquez-ici
-              </span>
-            </NoAccount>
-          </>
-        )}
+              <NoAccount>
+                Vous n'avez pas de compte?{" "}
+                <span onClick={() => setFormState(EnterState.SIGN_UP)}>
+                  Cliquez-ici
+                </span>
+              </NoAccount>
+            </>
+          )}
 
-        {formState === EnterState.SIGN_UP && (
-          <>
-            <h1>
-              Inscrivez-vous dès maintenant
-              <br /> à l'espace Brocoli
-            </h1>
+          {formState === EnterState.SIGN_UP && (
+            <>
+              <h1>
+                Inscrivez-vous dès maintenant
+                <br /> à l'espace Brocoli
+              </h1>
 
-            <SignUpForm />
+              <SignUpForm />
 
-            <NoAccount>
-              Vous avez déjà un compte?{" "}
-              <span onClick={() => setFormState(EnterState.SIGN_IN)}>
-                Cliquez-ici
-              </span>
-            </NoAccount>
-          </>
-        )}
-      </FormContainer>
-    </Container>
+              <NoAccount>
+                Vous avez déjà un compte?{" "}
+                <span onClick={() => setFormState(EnterState.SIGN_IN)}>
+                  Cliquez-ici
+                </span>
+              </NoAccount>
+            </>
+          )}
+        </FormContainer>
+      </Container>
+    </LandingLayout>
   );
 }

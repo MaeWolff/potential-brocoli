@@ -36,6 +36,14 @@ a{
 * {
   box-sizing: border-box;
 }
+
+
+
+html {
+  --header-height: 3em;
+}
+
+
 body {
   width: 100%;
   padding: 0em 5em;
