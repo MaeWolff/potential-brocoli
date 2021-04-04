@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { ButtonSizeEnum } from "../components/base/Button";
+import Prism from "prismjs";
+import "../styles/prism.css";
 
 import { Spacer, Button } from "../components/index";
 import GlobalLayout from "../layouts/GlobalLayout";
@@ -42,6 +44,10 @@ const HeroDiv = styled.div`
 `;
 
 export default function HomePage() {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
   return (
     <GlobalLayout>
       <HeroContainer>
@@ -68,6 +74,20 @@ export default function HomePage() {
 
         <HeroDiv />
       </HeroContainer>
+
+      <pre>
+        <code className="language-javascript">
+          {`<script defer>
+const checkout = window.Shopify.checkout 
+            
+if (checkout.discount.code) {
+fetch("https://api.brocoli.io/customers/sponsor?discountCode",
+{ method: "PATCH", 
+)}
+</script>
+`}
+        </code>
+      </pre>
     </GlobalLayout>
   );
 }
