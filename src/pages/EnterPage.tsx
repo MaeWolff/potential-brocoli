@@ -36,6 +36,7 @@ const FormContainer = styled.div`
     font-size: 2rem;
     font-weight: 600;
     color: ${({ theme }) => theme.colors.primary};
+    text-align: center;
   }
 
   button {
