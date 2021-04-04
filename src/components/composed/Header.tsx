@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -30,7 +31,9 @@ export default function Header() {
         </LinksWrapper>
       </nav>
 
-      <button>Connexion</button>
+      <Link to="/login">
+        <button>Connexion</button>
+      </Link>
     </HeaderContainer>
   );
 }
