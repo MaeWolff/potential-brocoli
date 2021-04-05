@@ -4,8 +4,9 @@ import { ButtonSizeEnum } from "../components/base/Button";
 import Prism from "prismjs";
 import "../styles/prism.css";
 
-import { Spacer, Button } from "../components/index";
+import { Spacer, Button, Heading } from "../components/index";
 import GlobalLayout from "../layouts/GlobalLayout";
+import { ColorEnum } from "../theme/ThemeEnums";
 
 const HeroContainer = styled.div`
   display: flex;
@@ -97,12 +98,12 @@ fetch("https://api.brocoli.io/customers/sponsor?discountCode",
         </pre>
 
         <div style={{ maxWidth: "40%" }}>
-          <h2>
+          <Heading as="h2" color={ColorEnum.primary}>
             Que vous soyez commercant ou développeur, notre solution est facile
             à mettre en place
-          </h2>
+          </Heading>
 
-          <Spacer axis="vertical" size={1} />
+          <Spacer axis="vertical" size={2} />
 
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum
@@ -110,7 +111,7 @@ fetch("https://api.brocoli.io/customers/sponsor?discountCode",
             diam fames ut eget.
           </p>
 
-          <Spacer axis="vertical" size={1} />
+          <Spacer axis="vertical" size={2} />
 
           <Button size={ButtonSizeEnum.auto}>Voir la documentation</Button>
         </div>
