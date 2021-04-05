@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -34,7 +34,15 @@ const LinksWrapper = styled.ul`
   }
 `;
 
+const DropDownWrapper = styled.ul`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+`;
+
 export default function Header() {
+  const [dropDownState, setdropDownState] = useState(false);
+
   return (
     <HeaderContainer>
       <Logo to="/">BROCOLI</Logo>
@@ -46,16 +54,18 @@ export default function Header() {
           <li>
             <a href="/">Prix</a>
           </li>
-          <li>
+          <li onMouseEnter={() => setdropDownState(true)} onMouseLeave={() => setdropDownState(false)}>
             <a href="/">Développeur</a>
-            {/* <ul>
-              <li>
-                <a href="/">Documentation</a>
-              </li>
-              <li>
-                <a href="/">Status</a>
-              </li>
-            </ul> */}
+            { dropDownState && (
+              <DropDownWrapper>
+                <li>
+                  <a href="/">Documentation</a>
+                </li>
+                <li>
+                  <a href="/">Status</a>
+                </li>
+              </DropDownWrapper>
+            )}
           </li>
         </LinksWrapper>
       </nav>
