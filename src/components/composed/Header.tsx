@@ -31,10 +31,9 @@ const LinksWrapper = styled.ul`
 
   li {
     position: relative;
-  }
-
-  li:not(:last-child) {
-    margin-right: 3em;
+    &:not(:last-child) {
+      margin-right: 3em;
+    }
   }
 `;
 
