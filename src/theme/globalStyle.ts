@@ -52,6 +52,7 @@ body {
   color: ${({ theme }) => theme.colors.black};
   background-color: ${(props) => props.theme.colors.white};
   font-weight: lighter;
+  font-family: 'Poppins';
 }
 
 `;
