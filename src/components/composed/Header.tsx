@@ -13,7 +13,8 @@ const HeaderContainer = styled.header`
   grid-area: Header;
   width: 100%;
   padding: 0 var(--body-margin);
-  position: fixed;
+  /* TODO: fixme */
+  /* position: sticky; */
   background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgb(236, 236, 236);
