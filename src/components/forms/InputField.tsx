@@ -4,12 +4,12 @@ import { Field, FormikErrors, FormikTouched } from "formik";
 const InputWrapper = styled.div`
   width: 100%;
   display: grid;
-  grid-gap: 0.5em;
   grid-template-areas: "Label" "Input" "ErrorMessage";
 `;
 
 const LabelStyled = styled.label`
   grid-area: Label;
+  margin: 0.5em 0;
 `;
 
 const InputStyled = styled(Field)`
@@ -31,9 +31,10 @@ const InputStyled = styled(Field)`
 
 const ErrorMessage = styled.p`
   // NOTE: to prevent layout glitches when no errors
-  min-height: 1.45em;
+  min-height: 1em;
   grid-area: ErrorMessage;
   color: red;
+  font-size: 0.75rem;
 `;
 
 type Props = {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import { AuthValidationSchema } from "./validationSchemas/authValidationSchema";
-import { InputField } from "../index";
+import { InputField, Button, ButtonSizeEnum, Spacer } from "../index";
 
 export default function SignUpForm() {
   function handleSubmit() {
@@ -47,7 +47,11 @@ export default function SignUpForm() {
             error={errors.passwordConfirmation}
           />
 
-          <button type="submit">S'inscrire</button>
+          <Spacer axis="vertical" size={1} />
+
+          <Button size={ButtonSizeEnum.auto} type="submit">
+            Se connecter
+          </Button>
         </Form>
       )}
     </Formik>

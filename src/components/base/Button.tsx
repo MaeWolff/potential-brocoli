@@ -28,9 +28,14 @@ export enum ButtonSizeEnum {
 
 interface Props {
   children: ReactNode;
+  type?: "button" | "submit" | "reset";
   size: ButtonSizeEnum;
 }
 
-export default function Button({ children, size }: Props) {
-  return <ButtonStyled size={size}>{children}</ButtonStyled>;
+export default function Button({ children, size, type }: Props) {
+  return (
+    <ButtonStyled size={size} type={type}>
+      {children}
+    </ButtonStyled>
+  );
 }
