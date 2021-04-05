@@ -40,7 +40,7 @@ a{
 
 
 html {
-  --header-height: 3em;
+  --header-height: 4em;
   --body-margin: 5em;
 }
 
@@ -53,6 +53,7 @@ body {
   background-color: ${(props) => props.theme.colors.white};
   font-weight: lighter;
   font-family: 'Poppins';
+  line-height: 1.5rem;
 }
 
 `;

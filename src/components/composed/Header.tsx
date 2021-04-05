@@ -13,6 +13,15 @@ const HeaderContainer = styled.header`
   grid-area: Header;
   width: 100%;
   padding: 0 var(--body-margin);
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgb(236, 236, 236);
+`;
+
+const Logo = styled(Link)`
+  font-weight: 600;
+  cursor: pointer;
 `;
 
 const LinksWrapper = styled.ul`
@@ -27,7 +36,7 @@ const LinksWrapper = styled.ul`
 export default function Header() {
   return (
     <HeaderContainer>
-      <p>BROCOLI</p>
+      <Logo to="/">BROCOLI</Logo>
       <nav>
         <LinksWrapper>
           <li>
@@ -38,14 +47,14 @@ export default function Header() {
           </li>
           <li>
             <a href="/">Développeur</a>
-            <ul>
+            {/* <ul>
               <li>
                 <a href="/">Documentation</a>
               </li>
               <li>
                 <a href="/">Status</a>
               </li>
-            </ul>
+            </ul> */}
           </li>
         </LinksWrapper>
       </nav>
