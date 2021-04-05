@@ -1,5 +1,5 @@
 // base
-export { default as Button } from "./base/Button";
+export { default as Button, ButtonSizeEnum } from "./base/Button";
 export { default as Spacer } from "./base/Spacer";
 
 // composed

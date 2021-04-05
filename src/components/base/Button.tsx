@@ -14,6 +14,11 @@ const ButtonStyled = styled.button<Props>`
   border: 0;
   border-radius: 0.5em;
   padding: 0 1em;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 export enum ButtonSizeEnum {

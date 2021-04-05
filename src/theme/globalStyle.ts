@@ -53,4 +53,5 @@ body {
   background-color: ${(props) => props.theme.colors.white};
   font-weight: lighter;
 }
+
 `;
