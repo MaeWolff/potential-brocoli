@@ -29,6 +29,10 @@ const LinksWrapper = styled.ul`
   display: flex;
   flex-direction: row;
 
+  li {
+    position: relative;
+  }
+
   li:not(:last-child) {
     margin-right: 3em;
   }
@@ -38,6 +42,19 @@ const DropDownWrapper = styled.ul`
   display: flex;
   flex-direction: column;
   position: absolute;
+`;
+
+const DropDownArrow = styled.div`
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: -0.8em;
+  width: 0.4em;
+  height: 0.4em;
+  border-left: 0.4em solid transparent;
+  border-right: 0.4em solid transparent;
+  border-top: 0.4em solid;
+  transform: translate(50%, -35%);
 `;
 
 export default function Header() {
@@ -56,6 +73,7 @@ export default function Header() {
           </li>
           <li onMouseEnter={() => setdropDownState(true)} onMouseLeave={() => setdropDownState(false)}>
             <a href="/">Développeur</a>
+            <DropDownArrow/>
             { dropDownState && (
               <DropDownWrapper>
                 <li>
