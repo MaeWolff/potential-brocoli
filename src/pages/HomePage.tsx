@@ -13,7 +13,7 @@ const HeroContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 80vh;
+  height: 85vh;
 `;
 
 const HeroTitle = styled.h1`
@@ -75,9 +75,16 @@ export default function HomePage() {
         <HeroDiv />
       </HeroContainer>
 
-      <pre>
-        <code className="language-javascript">
-          {`<script defer>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <pre>
+          <code className="language-javascript">
+            {`<script defer>
 const checkout = window.Shopify.checkout 
             
 if (checkout.discount.code) {
@@ -86,8 +93,28 @@ fetch("https://api.brocoli.io/customers/sponsor?discountCode",
 )}
 </script>
 `}
-        </code>
-      </pre>
+          </code>
+        </pre>
+
+        <div style={{ maxWidth: "40%" }}>
+          <h2>
+            Que vous soyez commercant ou développeur, notre solution est facile
+            à mettre en place
+          </h2>
+
+          <Spacer axis="vertical" size={1} />
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum
+            feugiat augue semper tempus sit id id porta elementum. Tellus donec
+            diam fames ut eget.
+          </p>
+
+          <Spacer axis="vertical" size={1} />
+
+          <Button size={ButtonSizeEnum.auto}>Voir la documentation</Button>
+        </div>
+      </div>
     </GlobalLayout>
   );
 }
