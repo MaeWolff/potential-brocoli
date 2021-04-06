@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { AuthValidationSchema } from "./validationSchemas/authValidationSchema";
-import { InputField, Button, Spacer, ButtonSizeEnum } from "../index";
+import { AuthValidationSchema } from "../validationSchemas/authValidationSchema";
+import { InputField, Button, Spacer, ButtonSizeEnum } from "../../index";
 
 export default function LoginForm() {
   function handleSubmit() {
