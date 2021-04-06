@@ -3,7 +3,7 @@ import { Formik, Form } from "formik";
 import { AuthValidationSchema } from "./validationSchemas/authValidationSchema";
 import { InputField, Button, Spacer, ButtonSizeEnum } from "../index";
 
-export default function SignInForm() {
+export default function LoginForm() {
   function handleSubmit() {
     console.log("ui");
   }

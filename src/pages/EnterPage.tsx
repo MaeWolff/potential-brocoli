@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import styled from "styled-components";
-import SignInForm from "../components/forms/SignInForm";
-import SignUpForm from "../components/forms/SignUpForm";
+import LoginForm from "../components/forms/authForms/LoginForm";
+import RegisterForm from "../components/forms/authForms/RegisterForm";
 
 import { Spacer } from "../components/index";
 
@@ -85,7 +85,7 @@ export default function EnterPage() {
 
               <Spacer axis="vertical" size={2} />
 
-              <SignInForm />
+              <LoginForm />
 
               <Spacer axis="vertical" size={1} />
 
@@ -107,7 +107,7 @@ export default function EnterPage() {
 
               <Spacer axis="vertical" size={2} />
 
-              <SignUpForm />
+              <RegisterForm />
 
               <Spacer axis="vertical" size={1} />
 
