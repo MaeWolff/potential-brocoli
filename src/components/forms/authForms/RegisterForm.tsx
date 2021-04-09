@@ -2,10 +2,26 @@ import React from "react";
 import { Formik, Form } from "formik";
 import { AuthValidationSchema } from "../validationSchemas/authValidationSchema";
 import { InputField, Button, ButtonSizeEnum, Spacer } from "../../index";
+import axios from "axios";
 
-export default function RegisterForm() {
-  function handleSubmit() {
-    console.log("ui");
+interface RegisterFormValues {
+  email: string;
+  password: string;
+}
+
+type Props = {
+  nextStep: () => void;
+};
+
+export default function RegisterForm({ nextStep }: Props) {
+  //
+  async function handleSubmit(values: RegisterFormValues) {
+    await axios.post(`http://localhost:3001/auth/register`, {
+      email: values.email,
+      password: values.password,
+    });
+
+    nextStep();
   }
 
   return (
@@ -15,7 +31,7 @@ export default function RegisterForm() {
         password: "",
         passwordConfirmation: "",
       }}
-      onSubmit={handleSubmit}
+      onSubmit={(values) => handleSubmit(values)}
       validationSchema={AuthValidationSchema}
     >
       {({ errors, touched }) => (
