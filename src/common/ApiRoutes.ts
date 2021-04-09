@@ -1,6 +1,8 @@
 export const apiHost = "http://localhost:3001";
 
-export enum ApiRoutes {}
+export enum ApiRoutes {
+  USER_ME = "/user/me",
+}
 
 /* ---- OTHER WAY TO WRITE IT -----
    export const ApiRoutes = {

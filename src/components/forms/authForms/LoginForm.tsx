@@ -27,6 +27,7 @@ export default function LoginForm() {
           if (!token) {
             console.log("authentification failed"); // TODO: set frontend message with UI
           } else {
+            localStorage.setItem("userToken", token);
             router.push("/dashboard");
           }
         },
