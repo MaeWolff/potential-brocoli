@@ -47,6 +47,8 @@ const HeroDiv = styled.div`
 const PricesSection = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default function HomePage() {
@@ -121,30 +123,41 @@ fetch("https://api.brocoli.io/customers/sponsor?discountCode",
         </div>
       </div>
 
+      <Spacer axis="vertical" size={8} />
+
       <PricesSection>
         <Heading as="h2">Choisissez le plus adapté</Heading>
 
-        <Text>
+        <Spacer axis="vertical" size={0.5} />
+
+        <Text style={{ maxWidth: "60%" }} align="center">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum
           feugiat augue semper tempus sit id id porta elementum. Tellus donec
           diam fames ut eget.
         </Text>
 
+        <Spacer axis="vertical" size={3} />
+
         {/* TODO: fix me */}
         <div
           style={{
+            width: "100%",
             display: "flex",
             flexDirection: "row",
-            justifyContent: "space-between",
+            justifyContent: "center",
           }}
         >
           <PriceCard name="Gratin de BROCOLI" price={0}>
             <>label ici</>
           </PriceCard>
 
+          <Spacer axis="horizontal" size={2} />
+
           <PriceCard name="Terrine de BROCOLI" price={0}>
             <>label ici</>
           </PriceCard>
+
+          <Spacer axis="horizontal" size={2} />
 
           <PriceCard name="Velouté de BROCOLI" price={0}>
             <>label ici</>
