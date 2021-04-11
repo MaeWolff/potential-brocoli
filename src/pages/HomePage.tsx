@@ -4,13 +4,13 @@ import { ButtonSizeEnum } from "../components/base/Button";
 import Prism from "prismjs";
 import "../styles/prism.css";
 
-import { Spacer, Button, Heading } from "../components/index";
+import { Spacer, Button, Heading, PriceCard, Text } from "../components/index";
 import GlobalLayout from "../layouts/GlobalLayout";
 import { ColorEnum } from "../theme/ThemeEnums";
 
 const HeroContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -44,6 +44,11 @@ const HeroDiv = styled.div`
   border-radius: 8px;
 `;
 
+const PricesSection = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 export default function HomePage() {
   useEffect(() => {
     Prism.highlightAll();
@@ -61,12 +66,11 @@ export default function HomePage() {
           <Spacer axis="vertical" size={2} />
 
           {/* TODO: fixme */}
-          <p style={{ maxWidth: "80%" }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum
-            feugiat augue semper tempus sit id id porta elementum. Tellus donec
-            diam fames ut eget. A, sit nulla in non. Ultrices mi cras in ut
-            integer porttitor. In enim a egestas sit elit sit.
-          </p>
+          <Text style={{ maxWidth: "80%" }}>
+            7000 entreprises de toutes tailles, des start-ups aux grandes
+            entreprises, et des milliers d’indépendants font confiance à Brocoli
+            pour parrainer leurs boutiques.
+          </Text>
 
           <Spacer axis="vertical" size={2} />
 
@@ -105,17 +109,45 @@ fetch("https://api.brocoli.io/customers/sponsor?discountCode",
 
           <Spacer axis="vertical" size={2} />
 
-          <p>
+          <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum
             feugiat augue semper tempus sit id id porta elementum. Tellus donec
             diam fames ut eget.
-          </p>
+          </Text>
 
           <Spacer axis="vertical" size={2} />
 
           <Button size={ButtonSizeEnum.auto}>Voir la documentation</Button>
         </div>
       </div>
+
+      <PricesSection>
+        <Heading as="h2">Choisissez le plus adapté</Heading>
+
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum
+          feugiat augue semper tempus sit id id porta elementum. Tellus donec
+          diam fames ut eget.
+        </Text>
+
+        <div>
+          <PriceCard name="Gratin de BROCOLI" price={0}>
+            <>label ici</>
+          </PriceCard>
+
+          <Spacer axis="horizontal" size={2} />
+
+          <PriceCard name="Terrine de BROCOLI" price={0}>
+            <>label ici</>
+          </PriceCard>
+
+          <Spacer axis="horizontal" size={2} />
+
+          <PriceCard name="Velouté de BROCOLI" price={0}>
+            <>label ici</>
+          </PriceCard>
+        </div>
+      </PricesSection>
     </GlobalLayout>
   );
 }
