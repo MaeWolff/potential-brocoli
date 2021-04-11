@@ -10,7 +10,7 @@ import { ColorEnum } from "../theme/ThemeEnums";
 
 const HeroContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -46,7 +46,7 @@ const HeroDiv = styled.div`
 
 const PricesSection = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `;
 
 export default function HomePage() {
@@ -130,18 +130,21 @@ fetch("https://api.brocoli.io/customers/sponsor?discountCode",
           diam fames ut eget.
         </Text>
 
-        <div>
+        {/* TODO: fix me */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
           <PriceCard name="Gratin de BROCOLI" price={0}>
             <>label ici</>
           </PriceCard>
 
-          <Spacer axis="horizontal" size={2} />
-
           <PriceCard name="Terrine de BROCOLI" price={0}>
             <>label ici</>
           </PriceCard>
-
-          <Spacer axis="horizontal" size={2} />
 
           <PriceCard name="Velouté de BROCOLI" price={0}>
             <>label ici</>

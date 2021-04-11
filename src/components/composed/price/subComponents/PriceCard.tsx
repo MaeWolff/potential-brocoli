@@ -18,6 +18,7 @@ const Card = styled.div`
     0px 0.37714px 2.85549px rgba(0, 0, 0, 0.0261253),
     0px 0.162205px 1.22813px rgba(0, 0, 0, 0.0180827);
   padding: 2em;
+  max-width: 16em;
 `;
 
 const PriceName = styled(Heading)`
