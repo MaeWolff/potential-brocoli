@@ -20,3 +20,11 @@ export const AuthValidationSchema = Yup.object({
     .required(REQUIRED_MSG)
     .oneOf([Yup.ref("password"), null], MUST_MATCH_PASSWORD_MSG),
 });
+
+export const LoginValidationSchema = Yup.object({
+  email: Yup.string()
+    .matches(EMAIL_REGEXP, INVALID_EMAIL_MSG)
+    .required(REQUIRED_MSG),
+
+  password: Yup.string().min(6, TOO_SHORT_MSG).required(REQUIRED_MSG),
+});

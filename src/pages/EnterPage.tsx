@@ -63,12 +63,12 @@ const NoAccount = styled.p`
 `;
 
 enum EnterState {
-  SIGN_IN = "SIGN IN",
-  SIGN_UP = "SIGN_UP",
+  REGISTER = "REGISTER",
+  LOGIN = "LOGIN",
 }
 
 export default function EnterPage() {
-  const [formState, setFormState] = useState(EnterState.SIGN_IN);
+  const [formState, setFormState] = useState(EnterState.LOGIN);
 
   return (
     <GlobalLayout fullWidth>
@@ -76,7 +76,7 @@ export default function EnterPage() {
         <DescriptionContainer />
 
         <FormContainer>
-          {formState === EnterState.SIGN_IN && (
+          {formState === EnterState.LOGIN && (
             <>
               <h1>
                 Bienvenue sur votre <br />
@@ -91,14 +91,14 @@ export default function EnterPage() {
 
               <NoAccount>
                 Vous n'avez pas de compte?{" "}
-                <span onClick={() => setFormState(EnterState.SIGN_UP)}>
+                <span onClick={() => setFormState(EnterState.REGISTER)}>
                   Cliquez-ici
                 </span>
               </NoAccount>
             </>
           )}
 
-          {formState === EnterState.SIGN_UP && (
+          {formState === EnterState.REGISTER && (
             <>
               <h1>
                 Inscrivez-vous dès maintenant
@@ -107,13 +107,13 @@ export default function EnterPage() {
 
               <Spacer axis="vertical" size={2} />
 
-              <RegisterForm />
+              <RegisterForm nextStep={() => setFormState(EnterState.LOGIN)} />
 
               <Spacer axis="vertical" size={1} />
 
               <NoAccount>
                 Vous avez déjà un compte?{" "}
-                <span onClick={() => setFormState(EnterState.SIGN_IN)}>
+                <span onClick={() => setFormState(EnterState.LOGIN)}>
                   Cliquez-ici
                 </span>
               </NoAccount>

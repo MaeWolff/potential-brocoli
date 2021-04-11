@@ -1,11 +1,40 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { AuthValidationSchema } from "../validationSchemas/authValidationSchema";
+import { LoginValidationSchema } from "../validationSchemas/authValidationSchema";
 import { InputField, Button, Spacer, ButtonSizeEnum } from "../../index";
 
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+
+interface LoginFormValues {
+  email: string;
+  password: string;
+}
+
 export default function LoginForm() {
-  function handleSubmit() {
-    console.log("ui");
+  const router = useHistory();
+
+  async function handleSubmit(values: LoginFormValues) {
+    await axios
+      .post(`http://localhost:3001/auth/login`, {
+        email: values.email,
+        password: values.password,
+      })
+      .then(
+        (response) => {
+          const token = response.data.token;
+
+          if (!token) {
+            console.log("authentification failed"); // TODO: set frontend message with UI
+          } else {
+            localStorage.setItem("userToken", token);
+            router.push("/dashboard");
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 
   return (
@@ -14,8 +43,8 @@ export default function LoginForm() {
         email: "",
         password: "",
       }}
-      onSubmit={handleSubmit}
-      validationSchema={AuthValidationSchema}
+      onSubmit={(values) => handleSubmit(values)}
+      validationSchema={LoginValidationSchema}
     >
       {({ errors, touched }) => (
         <Form>
