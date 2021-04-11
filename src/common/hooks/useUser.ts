@@ -2,18 +2,19 @@ import axios from "axios";
 import useSWR from "swr";
 import { apiHost, ApiRoutes } from "../ApiRoutes";
 
-export interface IUser {
-  data: {
-    uuid: number;
-    email: string;
-    password: string;
-    shopName?: string;
-    createdAt: Date;
-  };
+interface IUser {
+  uuid: number;
+  email: string;
+  password: string;
+  shopName?: string;
+  createdAt: Date;
+}
+interface useUserProps {
+  data: IUser;
   mutate: any; //TODO: search other type here
 }
 
-export function useUser(): IUser {
+export function useUser(): useUserProps {
   const { data, mutate } = useSWR(
     `${apiHost}${ApiRoutes.USER_ME}`,
     async () => {

@@ -5,12 +5,11 @@ import GlobalLayout from "../../layouts/GlobalLayout";
 export default function DashboardPage() {
   const user = useUser();
 
-  console.log(user);
   return (
     <GlobalLayout>
       <AuthenticatedRoute>
         <>
-          djsldjs
+          Bonjour {user?.data?.email}, bienvenue dans le dashboard
           <button>test</button>
         </>
       </AuthenticatedRoute>
