@@ -1,12 +1,21 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { AuthValidationSchema } from "../validationSchemas/authValidationSchema";
+import {
+  RegisterValidationSchema,
+  SubscriptionName,
+} from "../validationSchemas/authValidationSchema";
 import { InputField, Button, ButtonSizeEnum, Spacer } from "../../index";
 import axios from "axios";
 
+enum SubscriptionNameLocaleEnum {
+  GRATIN = "Gratin (gratuit)",
+  TERRINE = "Terrine (4,99 €)",
+  VELVETY = "Velouté (9,99€)",
+}
 interface RegisterFormValues {
   email: string;
   password: string;
+  subscription: SubscriptionName;
 }
 
 type Props = {
@@ -19,6 +28,7 @@ export default function RegisterForm({ nextStep }: Props) {
     await axios.post(`http://localhost:3001/auth/register`, {
       email: values.email,
       password: values.password,
+      subscription: values.subscription,
     });
 
     nextStep();
@@ -30,9 +40,10 @@ export default function RegisterForm({ nextStep }: Props) {
         email: "",
         password: "",
         passwordConfirmation: "",
+        subscription: SubscriptionName.GRATIN,
       }}
       onSubmit={(values) => handleSubmit(values)}
-      validationSchema={AuthValidationSchema}
+      validationSchema={RegisterValidationSchema}
     >
       {({ errors, touched }) => (
         <Form>
@@ -63,10 +74,25 @@ export default function RegisterForm({ nextStep }: Props) {
             error={errors.passwordConfirmation}
           />
 
+          {/* TODO: style me */}
+          <label htmlFor="subscription">Choissisez votre menu</label>
+
+          <select name="subscription">
+            <option value={SubscriptionName.GRATIN}>
+              {SubscriptionNameLocaleEnum.GRATIN}
+            </option>
+            <option value={SubscriptionName.TERRINE} disabled>
+              {SubscriptionNameLocaleEnum.TERRINE}
+            </option>
+            <option value={SubscriptionName.VELVETY} disabled>
+              {SubscriptionNameLocaleEnum.VELVETY}
+            </option>
+          </select>
+
           <Spacer axis="vertical" size={1} />
 
           <Button size={ButtonSizeEnum.auto} type="submit">
-            Se connecter
+            S'inscrire
           </Button>
         </Form>
       )}
