@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { Button, ButtonSizeEnum } from "../index";
+import { Button, ButtonSizeEnum, Spacer } from "../index";
+import { useUser } from "../../common/hooks/useUser";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -35,6 +36,8 @@ const LinksWrapper = styled.ul`
 `;
 
 export default function Header() {
+  const user = useUser();
+
   return (
     <HeaderContainer>
       <Logo to="/">BROCOLI</Logo>
@@ -60,9 +63,37 @@ export default function Header() {
         </LinksWrapper>
       </nav>
 
-      <Link to="/enter">
-        <Button size={ButtonSizeEnum.auto}>Connexion</Button>
-      </Link>
+      {!user && (
+        <Link to="/enter">
+          <Button size={ButtonSizeEnum.auto}>Connexion</Button>
+        </Link>
+      )}
+
+      {user && (
+        <div
+          style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+        >
+          <p>{user?.data?.email}</p>
+
+          <Spacer axis="horizontal" size={1} />
+
+          {/* TODO: fix me */}
+          <div
+            style={{
+              width: "2.5em",
+              height: "2.5em",
+              borderRadius: "50%",
+              backgroundColor: "red",
+              color: "white",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {user?.data?.email.substr(0, 1).toUpperCase()}
+          </div>
+        </div>
+      )}
     </HeaderContainer>
   );
 }
