@@ -2,16 +2,16 @@ import React from "react";
 import { Formik, Form } from "formik";
 import {
   RegisterValidationSchema,
-  SubscriptionName,
+  // SubscriptionName,
 } from "../validationSchemas/authValidationSchema";
 import { InputField, Button, ButtonSizeEnum, Spacer } from "../../index";
 import axios from "axios";
 
-enum SubscriptionNameLocaleEnum {
-  GRATIN = "Gratin (gratuit)",
-  TERRINE = "Terrine (4,99 €)",
-  VELVETY = "Velouté (9,99€)",
-}
+// enum SubscriptionNameLocaleEnum {
+//   GRATIN = "Gratin (gratuit)",
+//   TERRINE = "Terrine (4,99 €)",
+//   VELVETY = "Velouté (9,99€)",
+// }
 interface RegisterFormValues {
   email: string;
   password: string;

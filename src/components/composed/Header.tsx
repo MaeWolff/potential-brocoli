@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { Button, ButtonSizeEnum, Spacer } from "../index";
+import { Button, ButtonSizeEnum } from "../index";
 
 const HeaderContainer = styled.header`
   display: flex;
