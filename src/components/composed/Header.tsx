@@ -63,13 +63,12 @@ export default function Header() {
         </LinksWrapper>
       </nav>
 
-      {!user && (
-        <Link to="/enter">
-          <Button size={ButtonSizeEnum.auto}>Connexion</Button>
-        </Link>
-      )}
+      <Link to="/enter">
+        <Button size={ButtonSizeEnum.auto}>Connexion</Button>
+      </Link>
 
-      {user && (
+      {/* TODO: fix me with logout route */}
+      {/* {user && (
         <div
           style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
         >
@@ -77,7 +76,6 @@ export default function Header() {
 
           <Spacer axis="horizontal" size={1} />
 
-          {/* TODO: fix me */}
           <div
             style={{
               width: "2.5em",
@@ -93,7 +91,7 @@ export default function Header() {
             {user?.data?.email.substr(0, 1).toUpperCase()}
           </div>
         </div>
-      )}
+      )} */}
     </HeaderContainer>
   );
 }
