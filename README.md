@@ -3,19 +3,21 @@
 
 ## Table of contents
 * [General info](#general-info)
-* [Technologies](#frontend-technologies)
+* [Technologies](#technologies)
 * [Setup](#setup)
 
 ## General info
 School project
 // todo: make description de bg
 	
-## Frontend Technologies
+## Technologies
+### Frontend
 * ReactJS
 * Styled-components
+* TypeScript
 * Axios (to fetch data)
 
-## Backend Technologies
+### Backend
 see the repository [here](/)
 * NodeJS
 * Mongoose
