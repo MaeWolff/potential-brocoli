@@ -14,7 +14,7 @@ const HeroContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 85vh;
+  height: 80vh;
 `;
 
 const HeroTitle = styled.h1`
