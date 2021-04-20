@@ -31,6 +31,7 @@ const LinksWrapper = styled.ul`
 
   li {
     position: relative;
+    
     &:not(:last-child) {
       margin-right: 3em;
     }
@@ -57,7 +58,7 @@ const DropDownArrow = styled.div`
 `;
 
 export default function Header() {
-  const [dropDownState, setdropDownState] = useState(false);
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
   return (
     <HeaderContainer>
@@ -70,10 +71,10 @@ export default function Header() {
           <li>
             <a href="/">Prix</a>
           </li>
-          <li onMouseEnter={() => setdropDownState(true)} onMouseLeave={() => setdropDownState(false)}>
+          <li onMouseEnter={() => setIsDropDownOpen(true)} onMouseLeave={() => setIsDropDownOpen(false)}>
             <a href="/">Développeur</a>
             <DropDownArrow/>
-            { dropDownState && (
+            { isDropDownOpen && (
               <DropDownWrapper>
                 <li>
                   <a href="/">Documentation</a>
