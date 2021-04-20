@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 import { Button, ButtonSizeEnum, Spacer } from "../index";
-import { useUser } from "../../common/hooks/useUser";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -36,8 +35,6 @@ const LinksWrapper = styled.ul`
 `;
 
 export default function Header() {
-  const user = useUser();
-
   return (
     <HeaderContainer>
       <Logo to="/">BROCOLI</Logo>
@@ -63,7 +60,7 @@ export default function Header() {
         </LinksWrapper>
       </nav>
 
-      <Link to="/enter">
+      <Link to="/login">
         <Button size={ButtonSizeEnum.auto}>Connexion</Button>
       </Link>
 
