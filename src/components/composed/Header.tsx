@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -29,12 +29,37 @@ const LinksWrapper = styled.ul`
   display: flex;
   flex-direction: row;
 
-  li:not(:last-child) {
-    margin-right: 3em;
+  li {
+    position: relative;
+    
+    &:not(:last-child) {
+      margin-right: 3em;
+    }
   }
 `;
 
+const DropDownWrapper = styled.ul`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+`;
+
+const DropDownArrow = styled.div`
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: -0.8em;
+  width: 0.4em;
+  height: 0.4em;
+  border-left: 0.4em solid transparent;
+  border-right: 0.4em solid transparent;
+  border-top: 0.4em solid;
+  transform: translate(50%, -35%);
+`;
+
 export default function Header() {
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+
   return (
     <HeaderContainer>
       <Logo to="/">BROCOLI</Logo>
@@ -46,16 +71,19 @@ export default function Header() {
           <li>
             <a href="/">Prix</a>
           </li>
-          <li>
+          <li onMouseEnter={() => setIsDropDownOpen(true)} onMouseLeave={() => setIsDropDownOpen(false)}>
             <a href="/">Développeur</a>
-            {/* <ul>
-              <li>
-                <a href="/">Documentation</a>
-              </li>
-              <li>
-                <a href="/">Status</a>
-              </li>
-            </ul> */}
+            <DropDownArrow/>
+            { isDropDownOpen && (
+              <DropDownWrapper>
+                <li>
+                  <a href="/">Documentation</a>
+                </li>
+                <li>
+                  <a href="/">Status</a>
+                </li>
+              </DropDownWrapper>
+            )}
           </li>
         </LinksWrapper>
       </nav>
