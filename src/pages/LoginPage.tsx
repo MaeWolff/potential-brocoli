@@ -1,8 +1,6 @@
-import { useState } from "react";
-
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import LoginForm from "../components/forms/authForms/LoginForm";
-import RegisterForm from "../components/forms/authForms/RegisterForm";
 
 import { Spacer } from "../components/index";
 
@@ -62,13 +60,8 @@ const NoAccount = styled.p`
   }
 `;
 
-enum EnterState {
-  REGISTER = "REGISTER",
-  LOGIN = "LOGIN",
-}
-
 export default function EnterPage() {
-  const [formState, setFormState] = useState(EnterState.LOGIN);
+  const router = useHistory();
 
   return (
     <GlobalLayout fullWidth>
@@ -76,49 +69,21 @@ export default function EnterPage() {
         <DescriptionContainer />
 
         <FormContainer>
-          {formState === EnterState.LOGIN && (
-            <>
-              <h1>
-                Bienvenue sur votre <br />
-                espace Brocoli
-              </h1>
+          <h1>
+            Bienvenue sur votre <br />
+            espace Brocoli
+          </h1>
 
-              <Spacer axis="vertical" size={2} />
+          <Spacer axis="vertical" size={2} />
 
-              <LoginForm />
+          <LoginForm />
 
-              <Spacer axis="vertical" size={1} />
+          <Spacer axis="vertical" size={1} />
 
-              <NoAccount>
-                Vous n'avez pas de compte?{" "}
-                <span onClick={() => setFormState(EnterState.REGISTER)}>
-                  Cliquez-ici
-                </span>
-              </NoAccount>
-            </>
-          )}
-
-          {formState === EnterState.REGISTER && (
-            <>
-              <h1>
-                Inscrivez-vous dès maintenant
-                <br /> à l'espace Brocoli
-              </h1>
-
-              <Spacer axis="vertical" size={2} />
-
-              <RegisterForm nextStep={() => setFormState(EnterState.LOGIN)} />
-
-              <Spacer axis="vertical" size={1} />
-
-              <NoAccount>
-                Vous avez déjà un compte?{" "}
-                <span onClick={() => setFormState(EnterState.LOGIN)}>
-                  Cliquez-ici
-                </span>
-              </NoAccount>
-            </>
-          )}
+          <NoAccount>
+            Vous n'avez pas de compte?{" "}
+            <span onClick={() => router.push("/register")}>Cliquez-ici</span>
+          </NoAccount>
         </FormContainer>
       </Container>
     </GlobalLayout>

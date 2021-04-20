@@ -18,11 +18,7 @@ interface RegisterFormValues {
   // subscription: SubscriptionName;
 }
 
-type Props = {
-  nextStep: () => void;
-};
-
-export default function RegisterForm({ nextStep }: Props) {
+export default function RegisterForm() {
   //
   async function handleSubmit(values: RegisterFormValues) {
     await axios.post(`http://localhost:3001/auth/register`, {
@@ -30,8 +26,6 @@ export default function RegisterForm({ nextStep }: Props) {
       password: values.password,
       // subscription: values.subscription,
     });
-
-    nextStep();
   }
 
   return (
