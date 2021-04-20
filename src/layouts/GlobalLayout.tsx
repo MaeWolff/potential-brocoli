@@ -13,6 +13,7 @@ const Layout = styled.div`
 `;
 
 const Main = styled.main<{ fullWidth?: boolean }>`
+  margin-top: 1em;
   grid-area: Main;
   display: grid;
   grid-row-gap: 1em;

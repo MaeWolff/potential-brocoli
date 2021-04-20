@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 import { ColorEnum } from "../../theme/ThemeEnums";
+import { Link } from "react-router-dom";
 
 // NOTE: The props are shared with the Link element.
 export interface TextProps {
@@ -33,6 +34,12 @@ const textStyles = css<TextProps>`
 
 export const Text = styled.p<TextProps>`
   ${textStyles}
+`;
+
+export const TextLink = styled(Link)<TextProps>`
+  ${textStyles}
+  font-weight: 600;
+  text-decoration: underline;
 `;
 
 export const Heading = styled.h1<TextProps>`
