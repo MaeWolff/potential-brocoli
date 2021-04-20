@@ -15,7 +15,7 @@ enum SubscriptionNameLocaleEnum {
 interface RegisterFormValues {
   email: string;
   password: string;
-  subscription: SubscriptionName;
+  // subscription: SubscriptionName;
 }
 
 type Props = {
@@ -28,7 +28,7 @@ export default function RegisterForm({ nextStep }: Props) {
     await axios.post(`http://localhost:3001/auth/register`, {
       email: values.email,
       password: values.password,
-      subscription: values.subscription,
+      // subscription: values.subscription,
     });
 
     nextStep();
@@ -40,7 +40,6 @@ export default function RegisterForm({ nextStep }: Props) {
         email: "",
         password: "",
         passwordConfirmation: "",
-        subscription: SubscriptionName.GRATIN,
       }}
       onSubmit={(values) => handleSubmit(values)}
       validationSchema={RegisterValidationSchema}
@@ -75,7 +74,7 @@ export default function RegisterForm({ nextStep }: Props) {
           />
 
           {/* TODO: style me */}
-          <label htmlFor="subscription">Choissisez votre menu</label>
+          {/* <label htmlFor="subscription">Choissisez votre menu</label>
 
           <select name="subscription">
             <option value={SubscriptionName.GRATIN}>
@@ -87,7 +86,7 @@ export default function RegisterForm({ nextStep }: Props) {
             <option value={SubscriptionName.VELVETY} disabled>
               {SubscriptionNameLocaleEnum.VELVETY}
             </option>
-          </select>
+          </select> */}
 
           <Spacer axis="vertical" size={1} />
 

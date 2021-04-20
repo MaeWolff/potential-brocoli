@@ -26,9 +26,9 @@ export const RegisterValidationSchema = Yup.object({
     .required(REQUIRED_MSG)
     .oneOf([Yup.ref("password"), null], MUST_MATCH_PASSWORD_MSG),
 
-  subscription: Yup.mixed<SubscriptionName>().oneOf(
-    Object.values(SubscriptionName)
-  ),
+  // subscription: Yup.mixed<SubscriptionName>().oneOf(
+  //   Object.values(SubscriptionName)
+  // ),
 });
 
 export const LoginValidationSchema = Yup.object({
