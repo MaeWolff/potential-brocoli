@@ -71,7 +71,7 @@ const UserProfile = styled.div`
 
 export default function Header() {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const user = useUser();
+  const { user } = useUser();
 
   return (
     <HeaderContainer>
@@ -104,24 +104,22 @@ export default function Header() {
         </LinksWrapper>
       </nav>
 
-      {!user.data && (
+      {!user && (
         <Link to="/login">
           <Button size={ButtonSizeEnum.auto}>Connexion</Button>
         </Link>
       )}
 
-      {user.data && (
+      {user && (
         <Link to="/dashboard">
           <div
             style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
           >
-            <p>{user?.data?.email}</p>
+            <p>{user?.email}</p>
 
             <Spacer axis="horizontal" size={1} />
 
-            <UserProfile>
-              {user?.data?.email.substr(0, 1).toUpperCase()}
-            </UserProfile>
+            <UserProfile>{user?.email.substr(0, 1).toUpperCase()}</UserProfile>
           </div>
         </Link>
       )}
