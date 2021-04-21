@@ -192,15 +192,11 @@ fetch("https://api.brocoli.io/customers/sponsor?discountCode",
 
           <PriceCard name="Velouté de BROCOLI" price={9.99}>
             <>
-              <PriceLabel
-                label="Parrainages illimité"
-                isLabelCross={true}
-              ></PriceLabel>
-              <PriceLabel
-                label="Toutes les fonctionnalités"
-                isLabelCross={true}
-              ></PriceLabel>
-              <PriceLabel label="Accès au SAV" isLabelCross={true}></PriceLabel>
+              <PriceLabel label="Parrainages illimités" />
+
+              <PriceLabel label="Toutes les fonctionnalités" />
+
+              <PriceLabel label="Accès au SAV" />
             </>
           </PriceCard>
         </div>

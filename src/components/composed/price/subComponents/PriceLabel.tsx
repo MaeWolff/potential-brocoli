@@ -12,7 +12,7 @@ const Container = styled.div`
 `;
 
 type LabelProps = {
-  isLabelCross: boolean;
+  isLabelCross?: boolean;
   label: string;
 };
 
