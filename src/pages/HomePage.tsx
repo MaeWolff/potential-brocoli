@@ -4,7 +4,14 @@ import { ButtonSizeEnum } from "../components/base/Button";
 import Prism from "prismjs";
 import "../styles/prism.css";
 
-import { Spacer, Button, Heading, PriceCard, Text } from "../components/index";
+import {
+  Spacer,
+  Button,
+  Heading,
+  PriceCard,
+  Text,
+  PriceLabel,
+} from "../components/index";
 import GlobalLayout from "../layouts/GlobalLayout";
 import { ColorEnum } from "../theme/ThemeEnums";
 
@@ -126,14 +133,15 @@ fetch("https://api.brocoli.io/customers/sponsor?discountCode",
       <Spacer axis="vertical" size={8} />
 
       <PricesSection>
-        <Heading as="h2">Choisissez le plus adapté</Heading>
+        <Heading as="h2">Choisissez le menu plus adapté !</Heading>
 
         <Spacer axis="vertical" size={0.5} />
 
-        <Text style={{ maxWidth: "60%" }} align="center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum
-          feugiat augue semper tempus sit id id porta elementum. Tellus donec
-          diam fames ut eget.
+        <Text style={{ maxWidth: "85%" }} align="center">
+          Gérez vos parrainages et filleuls de votre boutique grâce à une
+          interface complète, facile à piloter.
+          <br></br>
+          Découvrir les offres pour en savoir plus.
         </Text>
 
         <Spacer axis="vertical" size={3} />
@@ -148,19 +156,37 @@ fetch("https://api.brocoli.io/customers/sponsor?discountCode",
           }}
         >
           <PriceCard name="Gratin de BROCOLI" price={0}>
-            <>label ici</>
+            <>
+              <PriceLabel label="5 parrainages" isLabelCross />
+
+              <PriceLabel label="Toutes les fonctionnalités" />
+
+              <PriceLabel label="Accès au SAV" />
+            </>
           </PriceCard>
 
           <Spacer axis="horizontal" size={2} />
 
-          <PriceCard name="Terrine de BROCOLI" price={0}>
-            <>label ici</>
+          <PriceCard name="Terrine de BROCOLI" price={4.99}>
+            <>
+              <PriceLabel label="50 parrainages" />
+
+              <PriceLabel label="Toutes les fonctionnalités" />
+
+              <PriceLabel label="Accès au SAV" />
+            </>
           </PriceCard>
 
           <Spacer axis="horizontal" size={2} />
 
-          <PriceCard name="Velouté de BROCOLI" price={0}>
-            <>label ici</>
+          <PriceCard name="Velouté de BROCOLI" price={9.99}>
+            <>
+              <PriceLabel label="Parrainages illimités" />
+
+              <PriceLabel label="Toutes les fonctionnalités" />
+
+              <PriceLabel label="Accès au SAV" />
+            </>
           </PriceCard>
         </div>
       </PricesSection>
