@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { Button, ButtonSizeEnum } from "../index";
+import { Button, ButtonSizeEnum, Spacer } from "../index";
+import { FlexCenter } from "../../styles/config/mixins";
+
+import { useUser } from "../../common/hooks/useUser";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -31,7 +34,7 @@ const LinksWrapper = styled.ul`
 
   li {
     position: relative;
-    
+
     &:not(:last-child) {
       margin-right: 3em;
     }
@@ -57,8 +60,18 @@ const DropDownArrow = styled.div`
   transform: translate(50%, -35%);
 `;
 
+const UserProfile = styled.div`
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: white;
+  ${FlexCenter}
+`;
+
 export default function Header() {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+  const user = useUser();
 
   return (
     <HeaderContainer>
@@ -71,10 +84,13 @@ export default function Header() {
           <li>
             <a href="/">Prix</a>
           </li>
-          <li onMouseEnter={() => setIsDropDownOpen(true)} onMouseLeave={() => setIsDropDownOpen(false)}>
+          <li
+            onMouseEnter={() => setIsDropDownOpen(true)}
+            onMouseLeave={() => setIsDropDownOpen(false)}
+          >
             <a href="/">Développeur</a>
-            <DropDownArrow/>
-            { isDropDownOpen && (
+            <DropDownArrow />
+            {isDropDownOpen && (
               <DropDownWrapper>
                 <li>
                   <a href="/">Documentation</a>
@@ -88,12 +104,13 @@ export default function Header() {
         </LinksWrapper>
       </nav>
 
-      <Link to="/login">
-        <Button size={ButtonSizeEnum.auto}>Connexion</Button>
-      </Link>
+      {!user.data && (
+        <Link to="/login">
+          <Button size={ButtonSizeEnum.auto}>Connexion</Button>
+        </Link>
+      )}
 
-      {/* TODO: fix me with logout route */}
-      {/* {user && (
+      {user.data && (
         <div
           style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
         >
@@ -101,22 +118,11 @@ export default function Header() {
 
           <Spacer axis="horizontal" size={1} />
 
-          <div
-            style={{
-              width: "2.5em",
-              height: "2.5em",
-              borderRadius: "50%",
-              backgroundColor: "red",
-              color: "white",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <UserProfile>
             {user?.data?.email.substr(0, 1).toUpperCase()}
-          </div>
+          </UserProfile>
         </div>
-      )} */}
+      )}
     </HeaderContainer>
   );
 }
