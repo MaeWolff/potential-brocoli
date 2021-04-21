@@ -19,9 +19,12 @@ type LabelProps = {
 const PriceLabel = ({ isLabelCross, label }: LabelProps) => {
   return (
     <Container>
-      {isLabelCross ? <CheckedSVG /> : <CrossSVG />}
+      {isLabelCross ? <CrossSVG /> : <CheckedSVG />}
+
       <Spacer axis="horizontal" size={1} />
+
       <p>{label}</p>
+
       <Spacer axis="vertical" size={3} />
     </Container>
   );

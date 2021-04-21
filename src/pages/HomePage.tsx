@@ -157,18 +157,11 @@ fetch("https://api.brocoli.io/customers/sponsor?discountCode",
         >
           <PriceCard name="Gratin de BROCOLI" price={0}>
             <>
-              <PriceLabel
-                label="5 parrainages"
-                isLabelCross={true}
-              ></PriceLabel>
-              <PriceLabel
-                label="Toutes les fonctionnalités"
-                isLabelCross={false}
-              ></PriceLabel>
-              <PriceLabel
-                label="Accès au SAV"
-                isLabelCross={false}
-              ></PriceLabel>
+              <PriceLabel label="5 parrainages" isLabelCross />
+
+              <PriceLabel label="Toutes les fonctionnalités" />
+
+              <PriceLabel label="Accès au SAV" />
             </>
           </PriceCard>
 
@@ -176,15 +169,11 @@ fetch("https://api.brocoli.io/customers/sponsor?discountCode",
 
           <PriceCard name="Terrine de BROCOLI" price={4.99}>
             <>
-              <PriceLabel
-                label="50 parrainages"
-                isLabelCross={true}
-              ></PriceLabel>
-              <PriceLabel
-                label="Toutes les fonctionnalités"
-                isLabelCross={true}
-              ></PriceLabel>
-              <PriceLabel label="Accès au SAV" isLabelCross={true}></PriceLabel>
+              <PriceLabel label="50 parrainages" />
+
+              <PriceLabel label="Toutes les fonctionnalités" />
+
+              <PriceLabel label="Accès au SAV" />
             </>
           </PriceCard>
 
