@@ -63,7 +63,7 @@ export default function DashboardPage() {
       <AuthenticatedRoute>
         <>
           Bonjour {user?.data?.email}, bienvenue dans le dashboard
-          <button onClick={handleLogout}>test</button>
+          <button onClick={handleLogout}>se déconnecter</button>
           <Spacer axis="vertical" size={3} />
           <Container>
             <DescriptionContainer>

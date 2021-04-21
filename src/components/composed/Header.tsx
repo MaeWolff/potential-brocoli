@@ -111,17 +111,19 @@ export default function Header() {
       )}
 
       {user.data && (
-        <div
-          style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
-        >
-          <p>{user?.data?.email}</p>
+        <Link to="/dashboard">
+          <div
+            style={{ display: "flex", alignItems: "center", cursor: "pointer" }}
+          >
+            <p>{user?.data?.email}</p>
 
-          <Spacer axis="horizontal" size={1} />
+            <Spacer axis="horizontal" size={1} />
 
-          <UserProfile>
-            {user?.data?.email.substr(0, 1).toUpperCase()}
-          </UserProfile>
-        </div>
+            <UserProfile>
+              {user?.data?.email.substr(0, 1).toUpperCase()}
+            </UserProfile>
+          </div>
+        </Link>
       )}
     </HeaderContainer>
   );
