@@ -1,3 +1,7 @@
+import { Formik, Form } from "formik";
+import styled from "styled-components";
+import axios from "axios";
+
 import { useUser } from "../../common/hooks/useUser";
 import AuthenticatedRoute from "../../layouts/AuthenticatedRoute";
 import GlobalLayout from "../../layouts/GlobalLayout";
@@ -9,9 +13,8 @@ import {
   Text,
   TextLink,
 } from "../../components/index";
-import { Formik, Form } from "formik";
-import styled from "styled-components";
 import { ColorEnum } from "../../theme/ThemeEnums";
+import { MixPanel } from "../../common/utils/MixPanel";
 
 const Container = styled.div`
   width: 100%;
@@ -39,17 +42,28 @@ interface CredentialsShopifyFormValues {
 }
 
 export default function DashboardPage() {
-  const user = useUser();
+  const { user } = useUser();
 
   function handleSubmit(values: CredentialsShopifyFormValues) {
     console.log(values);
+  }
+
+  function handleLogout() {
+    axios.get(`http://localhost:3001/auth/logout`);
+    localStorage.removeItem("userToken");
+
+    // TODO: setup react-toastify?
+
+    MixPanel.track("Logout");
+    window.location.reload();
   }
 
   return (
     <GlobalLayout>
       <AuthenticatedRoute>
         <>
-          Bonjour {user?.data?.email}, bienvenue dans le dashboard
+          Bonjour {user?.email}, bienvenue dans le dashboard
+          <button onClick={handleLogout}>se déconnecter</button>
           <Spacer axis="vertical" size={3} />
           <Container>
             <DescriptionContainer>

@@ -10,7 +10,7 @@ interface IUser {
   createdAt: Date;
 }
 interface useUserProps {
-  data: IUser;
+  user: IUser;
   mutate: any; //TODO: search other type here
 }
 
@@ -28,7 +28,7 @@ export function useUser(): useUserProps {
   );
 
   return {
-    data,
+    user: data,
     mutate,
   };
 }
