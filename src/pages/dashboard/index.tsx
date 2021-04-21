@@ -42,8 +42,7 @@ interface CredentialsShopifyFormValues {
 }
 
 export default function DashboardPage() {
-  const router = useHistory();
-  const { user, mutate } = useUser();
+  const { user } = useUser();
 
   function handleSubmit(values: CredentialsShopifyFormValues) {
     console.log(values);
@@ -54,8 +53,8 @@ export default function DashboardPage() {
     localStorage.removeItem("userToken");
 
     // TODO: setup react-toastify?
-    mutate();
-    router.push("/");
+
+    window.location.reload();
   }
 
   return (
