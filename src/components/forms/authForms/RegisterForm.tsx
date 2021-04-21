@@ -1,4 +1,3 @@
-import React from "react";
 import { Formik, Form } from "formik";
 import {
   RegisterValidationSchema,
@@ -6,6 +5,8 @@ import {
 } from "../validationSchemas/authValidationSchema";
 import { InputField, Button, ButtonSizeEnum, Spacer } from "../../index";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+import { MixPanel } from "../../../common/utils/MixPanel";
 
 // enum SubscriptionNameLocaleEnum {
 //   GRATIN = "Gratin (gratuit)",
@@ -19,13 +20,27 @@ interface RegisterFormValues {
 }
 
 export default function RegisterForm() {
-  //
+  const router = useHistory();
+
   async function handleSubmit(values: RegisterFormValues) {
-    await axios.post(`http://localhost:3001/auth/register`, {
-      email: values.email,
-      password: values.password,
-      // subscription: values.subscription,
-    });
+    try {
+      await axios.post(`http://localhost:3001/auth/register`, {
+        email: values.email,
+        password: values.password,
+        // subscription: values.subscription,
+      });
+
+      MixPanel.identify(values.email);
+      MixPanel.track("Successful register");
+      MixPanel.people.set({
+        $email: values.email,
+      });
+
+      router.push("/login");
+    } catch (err) {
+      MixPanel.track("Unsuccessful register");
+      console.log(err);
+    }
   }
 
   return (
