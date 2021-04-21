@@ -5,6 +5,7 @@ import { InputField, Button, Spacer, ButtonSizeEnum } from "../../index";
 
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { MixPanel } from "../../../common/utils/MixPanel";
 
 interface LoginFormValues {
   email: string;
@@ -28,10 +29,15 @@ export default function LoginForm() {
             console.log("authentification failed"); // TODO: set frontend message with UI
           } else {
             localStorage.setItem("userToken", token);
+
+            MixPanel.identify(values.email);
+            MixPanel.track("Successful login");
+
             router.push("/dashboard");
           }
         },
         (error) => {
+          MixPanel.track("Unsuccessful login");
           console.log(error);
         }
       );
