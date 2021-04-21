@@ -7,7 +7,6 @@ import { BackgroundPrimaryText } from "../../../../styles/config/mixins";
 const Card = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   background-color: white;
   box-shadow: 0px 7px 53px rgba(0, 0, 0, 0.07),
@@ -18,7 +17,7 @@ const Card = styled.div`
     0px 0.37714px 2.85549px rgba(0, 0, 0, 0.0261253),
     0px 0.162205px 1.22813px rgba(0, 0, 0, 0.0180827);
   padding: 2em;
-  max-width: 16em;
+  width: 22em;
 `;
 
 const PriceName = styled(Heading)`
@@ -26,7 +25,9 @@ const PriceName = styled(Heading)`
   ${BackgroundPrimaryText};
 `;
 
-const LabelWrapper = styled.div``;
+const LabelWrapper = styled.div`
+  min-height: 11em;
+`;
 
 type PriceProps = {
   children: JSX.Element;
@@ -53,8 +54,6 @@ export default function PriceCard({ name, price, children }: PriceProps) {
       <Spacer axis="vertical" size={2} />
 
       <LabelWrapper>{children}</LabelWrapper>
-
-      <Spacer axis="vertical" size={1} />
 
       <Button size={ButtonSizeEnum.auto}>Nous contacter</Button>
     </Card>
