@@ -1,4 +1,3 @@
-import { useHistory } from "react-router-dom";
 import { Formik, Form } from "formik";
 import styled from "styled-components";
 import axios from "axios";
@@ -15,6 +14,7 @@ import {
   TextLink,
 } from "../../components/index";
 import { ColorEnum } from "../../theme/ThemeEnums";
+import { MixPanel } from "../../common/utils/MixPanel";
 
 const Container = styled.div`
   width: 100%;
@@ -54,6 +54,7 @@ export default function DashboardPage() {
 
     // TODO: setup react-toastify?
 
+    MixPanel.track("Logout");
     window.location.reload();
   }
 
