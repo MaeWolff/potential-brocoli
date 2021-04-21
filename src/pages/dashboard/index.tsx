@@ -1,3 +1,9 @@
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
+import { Formik, Form } from "formik";
+import styled from "styled-components";
+import axios from "axios";
+
 import { useUser } from "../../common/hooks/useUser";
 import AuthenticatedRoute from "../../layouts/AuthenticatedRoute";
 import GlobalLayout from "../../layouts/GlobalLayout";
@@ -9,8 +15,6 @@ import {
   Text,
   TextLink,
 } from "../../components/index";
-import { Formik, Form } from "formik";
-import styled from "styled-components";
 import { ColorEnum } from "../../theme/ThemeEnums";
 
 const Container = styled.div`
@@ -38,11 +42,33 @@ interface CredentialsShopifyFormValues {
   shopifyKey: string;
 }
 
+function notify() {
+  toast("🦄 Wow so easy!", {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+  });
+}
+
 export default function DashboardPage() {
+  const router = useHistory();
   const user = useUser();
 
   function handleSubmit(values: CredentialsShopifyFormValues) {
     console.log(values);
+  }
+
+  function handleLogout() {
+    axios.get(`http://localhost:3001/auth/logout`);
+    localStorage.removeItem("userToken");
+
+    notify();
+
+    router.push("/");
   }
 
   return (
@@ -50,6 +76,7 @@ export default function DashboardPage() {
       <AuthenticatedRoute>
         <>
           Bonjour {user?.data?.email}, bienvenue dans le dashboard
+          <button onClick={handleLogout}>test</button>
           <Spacer axis="vertical" size={3} />
           <Container>
             <DescriptionContainer>
