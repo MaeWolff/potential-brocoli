@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { Formik, Form } from "formik";
 import styled from "styled-components";
@@ -42,18 +41,6 @@ interface CredentialsShopifyFormValues {
   shopifyKey: string;
 }
 
-function notify() {
-  toast("🦄 Wow so easy!", {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-  });
-}
-
 export default function DashboardPage() {
   const router = useHistory();
   const user = useUser();
@@ -66,7 +53,7 @@ export default function DashboardPage() {
     axios.get(`http://localhost:3001/auth/logout`);
     localStorage.removeItem("userToken");
 
-    notify();
+    // TODO: setup react-toastify?
 
     router.push("/");
   }
