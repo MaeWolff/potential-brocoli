@@ -1,7 +1,6 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import styled from "styled-components";
-import { Header } from "../components/index";
-import { Footer } from "../components/index";
+import { Header, Footer } from "../components/index";
 
 const Layout = styled.div`
   display: grid;
@@ -35,6 +34,7 @@ export default function GlobalLayout({ children, fullWidth }: Props) {
       <Header />
 
       <Main fullWidth={fullWidth}>{children}</Main>
+
       <Footer />
     </Layout>
   );
