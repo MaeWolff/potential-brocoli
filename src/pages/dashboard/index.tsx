@@ -1,4 +1,3 @@
-import { Formik, Form } from "formik";
 import styled from "styled-components";
 import axios from "axios";
 
@@ -6,12 +5,10 @@ import { useUser } from "../../common/hooks/useUser";
 import AuthenticatedRoute from "../../layouts/AuthenticatedRoute";
 import GlobalLayout from "../../layouts/GlobalLayout";
 import {
-  Button,
-  ButtonSizeEnum,
-  InputField,
   Spacer,
   Text,
   TextLink,
+  UserCredentials,
 } from "../../components/index";
 import { ColorEnum } from "../../theme/ThemeEnums";
 import { MixPanel } from "../../common/utils/MixPanel";
@@ -23,30 +20,12 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const CredentialsContainer = styled.div`
-  width: 24em;
-  background-color: white;
-  padding: 1em 2em;
-  border-radius: 0.5rem;
-  box-shadow: rgb(238 238 238) 0px 10px 30px;
-`;
-
 const DescriptionContainer = styled.div`
   width: 40%;
 `;
 
-interface CredentialsShopifyFormValues {
-  shopifyName: string;
-  shopifyPassword: string;
-  shopifyKey: string;
-}
-
 export default function DashboardPage() {
   const { user } = useUser();
-
-  function handleSubmit(values: CredentialsShopifyFormValues) {
-    console.log(values);
-  }
 
   function handleLogout() {
     axios.get(`http://localhost:3001/auth/logout`);
@@ -92,57 +71,7 @@ export default function DashboardPage() {
 
             <Spacer axis="horizontal" size={4} />
 
-            <CredentialsContainer>
-              <Formik
-                initialValues={{
-                  shopifyName: "",
-                  shopifyPassword: "",
-                  shopifyKey: "",
-                }}
-                onSubmit={(values) => handleSubmit(values)}
-              >
-                {({ errors, touched }) => (
-                  <Form>
-                    <InputField
-                      type="text"
-                      placeholder="brocolishop"
-                      name="shopifyName"
-                      label="Nom de votre boutique"
-                      touched={touched.shopifyName}
-                      error={errors.shopifyName}
-                    />
-
-                    <Spacer axis="vertical" size={1} />
-
-                    <InputField
-                      type="password"
-                      placeholder="*******"
-                      name="shopifyPassword"
-                      label="Mot de passe associé"
-                      touched={touched.shopifyPassword}
-                      error={errors.shopifyPassword}
-                    />
-
-                    <Spacer axis="vertical" size={1} />
-
-                    <InputField
-                      type="text"
-                      placeholder="eDPsehDzMd2jd"
-                      name="shopifyKey"
-                      label="API KEY"
-                      touched={touched.shopifyKey}
-                      error={errors.shopifyKey}
-                    />
-                  </Form>
-                )}
-              </Formik>
-
-              <Spacer axis="vertical" size={1} />
-
-              <Button size={ButtonSizeEnum.auto} type="submit">
-                Valider mes informations
-              </Button>
-            </CredentialsContainer>
+            <UserCredentials />
           </Container>
         </>
       </AuthenticatedRoute>

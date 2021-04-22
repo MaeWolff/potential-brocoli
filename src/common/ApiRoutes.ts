@@ -2,6 +2,7 @@ export const apiHost = "http://localhost:3001";
 
 export enum ApiRoutes {
   USER_ME = "/user/me",
+  USER_UPDATE_CREDENTIALS = "/user/update-credentials",
 }
 
 /* ---- OTHER WAY TO WRITE IT -----

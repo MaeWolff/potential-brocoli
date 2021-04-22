@@ -30,11 +30,12 @@ interface Props {
   children: ReactNode;
   type?: "button" | "submit" | "reset";
   size: ButtonSizeEnum;
+  handleClick?: () => void;
 }
 
-export default function Button({ children, size, type }: Props) {
+export default function Button({ children, size, type, handleClick }: Props) {
   return (
-    <ButtonStyled size={size} type={type}>
+    <ButtonStyled size={size} type={type} onClick={handleClick}>
       {children}
     </ButtonStyled>
   );

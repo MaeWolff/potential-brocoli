@@ -6,8 +6,14 @@ interface IUser {
   uuid: number;
   email: string;
   password: string;
-  shopName?: string;
   createdAt: Date;
+  credentials: [
+    {
+      shop_name: string;
+      shop_password: string;
+      shop_apiKey: string;
+    }
+  ];
 }
 interface useUserProps {
   user: IUser;
