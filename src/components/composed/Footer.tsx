@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import FacebookSVG from "../../assets/svg/FacebookSVG";
 import InstagramSVG from "../../assets/svg/InstagramSVG";
 import TwitterSVG from "../../assets/svg/TwitterSVG";
-import Spacer from "../base/Spacer";
+
+import { Spacer, Text } from "../index";
 
 const FooterContainer = styled.footer`
-  height: 30em;
   width: 100%;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.black};
@@ -102,55 +102,80 @@ export default function Footer() {
       <SectionFooterContainer>
         <FooterInformations>
           <h4>
-            À propos de <Logo to="/">BROCOLI</Logo>
+            À propos de{" "}
+            <span>
+              <Logo to="/">BROCOLI</Logo>
+            </span>
           </h4>
 
-          <p>
+          <Spacer axis="vertical" size={1} />
+
+          <Text>
             <em>BROCOLI</em> est une Société Anonyme (SA) au capital de
             838 571,80 € entièrement libéré (Siren: 818 353 070 R.C.S. Paris) et
             est régie par le code des assurances. Son siège social est au 27 Bis
             Rue du Progrès, 93100 Montreuil.
-            <Spacer axis="vertical" size={1} />
+          </Text>
+
+          <Spacer axis="vertical" size={1} />
+
+          <Text>
             <em>BROCOLI</em> est soumise au contrôle de l’Autorité de contrôle
             prudentiel et de résolution (ACPR), 4 place de Budapest, 75009
             Paris.
-            <Spacer axis="vertical" size={1} />
+          </Text>
+
+          <Spacer axis="vertical" size={1} />
+
+          <Text>
             <em>BROCOLI</em> met à la disposition du public son Rapport sur la
             Solvabilité et la Situation Financière (exercice 2019)
-          </p>
+          </Text>
         </FooterInformations>
 
         <FooterInformations>
           <h4>Réclamation</h4>
 
-          <p>
+          <Spacer axis="vertical" size={1} />
+
+          <Text>
             Vous pouvez nous écrire en ligne via votre espace personnel ou
             saisir le <em>Médiateur de l’Assurance</em> à l’adresse: TSA 50110,
             75441 Paris Cedex 09.
-          </p>
+          </Text>
         </FooterInformations>
 
         <FooterInformations>
           <h4>Mentions légales</h4>
 
-          <p>
+          <Spacer axis="vertical" size={1} />
+
+          <Text>
             <em>Editeur :</em> Ce site est produit par <em>BROCOLI SA</em>. Pour
             toute question concernant l’utilisation du site alan.com vous pouvez
             nous contacter directement en ligne.
-            <Spacer axis="vertical" size={1} />
+          </Text>
+
+          <Spacer axis="vertical" size={1} />
+
+          <Text>
             <em>Hébergement :</em> Le site brocoli.fr est hébergé par la société
             Heroku Europe (Heroku Inc., 650 7th Street, San Francisco, CA) sur
             les serveurs d’Amazon Web Services (AWS) Europe.
-          </p>
+          </Text>
         </FooterInformations>
 
         <FooterInformations>
-          <p>
+          <Text>
             Les traitements automatisés relatifs à la gestion des informations
             personnelles des clients ou prospects ont fait l’objet d’une
             déclaration (n° 2004097 v0) auprès de la Commission nationale
             informatique et liberté (CNIL).
-            <Spacer axis="vertical" size={1} />
+          </Text>
+
+          <Spacer axis="vertical" size={1} />
+
+          <Text>
             Conformément à la loi n° 78-17, vous bénéficiez d'un droit d'accès,
             de rectification et d'opposition relatif aux données vous concernant
             ; ce droit peut être exercé en adressant un mail à l'adresse{" "}
@@ -158,7 +183,7 @@ export default function Footer() {
               <u>privacy@brocoli.com</u>
             </em>
             .
-          </p>
+          </Text>
         </FooterInformations>
       </SectionFooterContainer>
     </FooterContainer>
