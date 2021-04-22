@@ -1,9 +1,39 @@
 import { Formik, Form } from "formik";
 import axios from "axios";
+import styled from "styled-components";
 
 import { useUser } from "../../../../common/hooks/useUser";
-import { Button, ButtonSizeEnum, InputField, Spacer } from "../../../index";
+import {
+  Button,
+  ButtonSizeEnum,
+  InputField,
+  Spacer,
+  Text,
+} from "../../../index";
 import { MixPanel } from "../../../../common/utils/MixPanel";
+import { useState } from "react";
+import { FlexCenter } from "../../../../styles/config/mixins";
+
+const ModalWrapper = styled.div`
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 23;
+  ${FlexCenter}
+
+  background-color: rgba(0, 0, 0, 0.4);
+`;
+
+const Modal = styled.div`
+  ${FlexCenter}
+  background-color: white;
+  max-width: 30em;
+  flex-direction: column;
+  border-radius: 0.5em;
+  padding: 1em 2em;
+`;
 
 interface CredentialsShopifyFormValues {
   shopifyName: string;
@@ -12,6 +42,7 @@ interface CredentialsShopifyFormValues {
 }
 
 export default function CredentialsForm() {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const { user, mutate } = useUser();
 
   async function handleSubmit(values: CredentialsShopifyFormValues) {
@@ -86,7 +117,39 @@ export default function CredentialsForm() {
 
           <Spacer axis="vertical" size={1} />
 
-          <Button size={ButtonSizeEnum.auto} type="submit">
+          {isModalOpen && (
+            <ModalWrapper>
+              <Modal>
+                <Text align="center">
+                  Êtes-vous sûr(e) d'avoir renseigné les bonnes informations au
+                  sujet de votre boutique Shopify ?
+                </Text>
+
+                <Spacer axis="vertical" size={1} />
+
+                <div style={{ display: "flex" }}>
+                  <Button size={ButtonSizeEnum.auto} type="submit">
+                    Oui je valide
+                  </Button>
+
+                  <Spacer axis="horizontal" size={1} />
+
+                  <Button
+                    size={ButtonSizeEnum.auto}
+                    handleClick={() => setIsModalOpen(false)}
+                  >
+                    Non
+                  </Button>
+                </div>
+              </Modal>
+            </ModalWrapper>
+          )}
+
+          <Button
+            size={ButtonSizeEnum.auto}
+            type="button"
+            handleClick={() => setIsModalOpen(true)}
+          >
             Valider mes informations
           </Button>
         </Form>
