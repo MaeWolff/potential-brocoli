@@ -15,6 +15,8 @@ const FooterContainer = styled.footer`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* TODO: fix this on layout with grid-gap? */
+  margin-top: 12em;
 `;
 
 const HeroFooterContainer = styled.div`
@@ -152,8 +154,8 @@ export default function Footer() {
 
           <Text>
             <em>Editeur :</em> Ce site est produit par <em>BROCOLI SA</em>. Pour
-            toute question concernant l’utilisation du site brocoli.fr vous pouvez
-            nous contacter directement en ligne.
+            toute question concernant l’utilisation du site brocoli.fr vous
+            pouvez nous contacter directement en ligne.
           </Text>
 
           <Spacer axis="vertical" size={1} />

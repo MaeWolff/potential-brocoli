@@ -18,7 +18,7 @@ export default function UserCredentials() {
   const { user } = useUser();
 
   return (
-    <>
+    <div>
       {user?.credentials[0] && (
         <>
           <CredentialsContainer>
@@ -46,8 +46,6 @@ export default function UserCredentials() {
               {user.credentials[0]?.shop_apiKey}
             </Text>
           </CredentialsContainer>
-
-          {/* TODO: add script here */}
         </>
       )}
 
@@ -56,6 +54,6 @@ export default function UserCredentials() {
           <CredentialsForm />
         </CredentialsContainer>
       )}
-    </>
+    </div>
   );
 }
