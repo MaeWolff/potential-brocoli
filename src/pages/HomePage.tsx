@@ -9,6 +9,7 @@ import {
   Button,
   Heading,
   PriceCard,
+  HeadTag,
   Text,
   PriceLabel,
 } from "../components/index";
@@ -65,6 +66,7 @@ export default function HomePage() {
 
   return (
     <GlobalLayout>
+      <HeadTag title="Page d'accueil" />
       <HeroContainer>
         <div>
           <HeroTitle>

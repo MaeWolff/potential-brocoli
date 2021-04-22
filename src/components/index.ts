@@ -1,6 +1,7 @@
 // base
 export { default as Button, ButtonSizeEnum } from "./base/Button";
 export { default as Spacer } from "./base/Spacer";
+export { default as HeadTag } from "./base/HeadTag";
 export { Text, Heading, TextLink } from "./base/Text";
 
 // composed

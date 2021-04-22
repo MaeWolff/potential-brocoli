@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import RegisterForm from "../components/forms/authForms/RegisterForm";
 
-import { Spacer } from "../components/index";
+import { Spacer, HeadTag } from "../components/index";
 
 import GlobalLayout from "../layouts/GlobalLayout";
 
@@ -65,6 +65,7 @@ export default function RegisterPage() {
 
   return (
     <GlobalLayout fullWidth>
+      <HeadTag title="Inscription" />
       <Container>
         <DescriptionContainer />
 
