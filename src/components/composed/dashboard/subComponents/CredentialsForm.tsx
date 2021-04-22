@@ -13,6 +13,7 @@ import {
 import { MixPanel } from "../../../../common/utils/MixPanel";
 import { useState } from "react";
 import { FlexCenter } from "../../../../styles/config/mixins";
+import { CredentialsValidationSchema } from "../../../forms/validationSchemas/credentialsValidationSchema";
 
 const ModalWrapper = styled.div`
   top: 0;
@@ -80,6 +81,7 @@ export default function CredentialsForm() {
         shopifyPassword: "",
         shopifyKey: "",
       }}
+      validationSchema={CredentialsValidationSchema}
       onSubmit={(values) => handleSubmit(values)}
     >
       {({ errors, touched }) => (
