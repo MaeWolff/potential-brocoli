@@ -25,6 +25,7 @@ const Container = styled.div`
 
 const CredentialsContainer = styled.div`
   width: 24em;
+  height: fit-content;
   background-color: white;
   padding: 1em 2em;
   border-radius: 0.5rem;
@@ -42,7 +43,7 @@ interface CredentialsShopifyFormValues {
 }
 
 export default function DashboardPage() {
-  const { user } = useUser();
+  const { user, mutate } = useUser();
 
   async function handleSubmit(values: CredentialsShopifyFormValues) {
     try {
@@ -63,6 +64,8 @@ export default function DashboardPage() {
           },
         }
       );
+
+      mutate(user);
 
       MixPanel.track("Credentials shopify updated");
     } catch (err) {
@@ -115,55 +118,85 @@ export default function DashboardPage() {
             <Spacer axis="horizontal" size={4} />
 
             <CredentialsContainer>
-              <Formik
-                initialValues={{
-                  shopifyName: "",
-                  shopifyPassword: "",
-                  shopifyKey: "",
-                }}
-                onSubmit={(values) => handleSubmit(values)}
-              >
-                {({ errors, touched }) => (
-                  <Form>
-                    <InputField
-                      type="text"
-                      placeholder="brocolishop"
-                      name="shopifyName"
-                      label="Nom de votre boutique"
-                      touched={touched.shopifyName}
-                      error={errors.shopifyName}
-                    />
+              {user?.credentials[0] && (
+                <>
+                  <h3>Vos informations</h3>
 
-                    <Spacer axis="vertical" size={1} />
+                  <Spacer axis="vertical" size={1} />
 
-                    <InputField
-                      type="password"
-                      placeholder="*******"
-                      name="shopifyPassword"
-                      label="Mot de passe associé"
-                      touched={touched.shopifyPassword}
-                      error={errors.shopifyPassword}
-                    />
+                  {/* TODO: refacto with readonly on input */}
+                  <Text>Nom de ta boutique</Text>
+                  <Text color={ColorEnum.primary}>
+                    {user.credentials[0]?.shop_name}
+                  </Text>
 
-                    <Spacer axis="vertical" size={1} />
+                  <Spacer axis="vertical" size={0.5} />
 
-                    <InputField
-                      type="text"
-                      placeholder="eDPsehDzMd2jd"
-                      name="shopifyKey"
-                      label="API KEY"
-                      touched={touched.shopifyKey}
-                      error={errors.shopifyKey}
-                    />
+                  <Text>Mot de passe associé</Text>
+                  <Text color={ColorEnum.primary}>
+                    {user.credentials[0]?.shop_password}
+                  </Text>
 
-                    <Spacer axis="vertical" size={1} />
+                  <Spacer axis="vertical" size={0.5} />
 
-                    <Button size={ButtonSizeEnum.auto} type="submit">
-                      Valider mes informations
-                    </Button>
-                  </Form>
-                )}
-              </Formik>
+                  <Text>API KEY</Text>
+                  <Text color={ColorEnum.primary}>
+                    {user.credentials[0]?.shop_apiKey}
+                  </Text>
+                </>
+              )}
+
+              {!user?.credentials[0] && (
+                <Formik
+                  initialValues={{
+                    shopifyName: "",
+                    shopifyPassword: "",
+                    shopifyKey: "",
+                  }}
+                  onSubmit={(values) => handleSubmit(values)}
+                >
+                  {({ errors, touched }) => (
+                    <Form>
+                      <InputField
+                        type="text"
+                        placeholder="brocolishop"
+                        name="shopifyName"
+                        label="Nom de votre boutique"
+                        touched={touched.shopifyName}
+                        error={errors.shopifyName}
+                      />
+
+                      <Spacer axis="vertical" size={1} />
+
+                      <InputField
+                        type="password"
+                        placeholder="*******"
+                        name="shopifyPassword"
+                        label="Mot de passe associé"
+                        touched={touched.shopifyPassword}
+                        error={errors.shopifyPassword}
+                      />
+
+                      <Spacer axis="vertical" size={1} />
+
+                      <InputField
+                        type="text"
+                        placeholder="eDPsehDzMd2jd"
+                        name="shopifyKey"
+                        label="API KEY"
+                        touched={touched.shopifyKey}
+                        error={errors.shopifyKey}
+                      />
+
+                      <Spacer axis="vertical" size={1} />
+
+                      <Button size={ButtonSizeEnum.auto} type="submit">
+                        Valider mes informations
+                      </Button>
+                    </Form>
+                  )}
+                </Formik>
+              )}
             </CredentialsContainer>
           </Container>
         </>
