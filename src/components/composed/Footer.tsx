@@ -152,7 +152,7 @@ export default function Footer() {
 
           <Text>
             <em>Editeur :</em> Ce site est produit par <em>BROCOLI SA</em>. Pour
-            toute question concernant l’utilisation du site alan.com vous pouvez
+            toute question concernant l’utilisation du site brocoli.fr vous pouvez
             nous contacter directement en ligne.
           </Text>
 
