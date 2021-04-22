@@ -14,9 +14,8 @@ export default function HeadTag({ title }: HeadProps) {
       <meta name="title" content="Brocoli - le module de parrainage shopify" />
       <meta
         name="description"
-        content="Brocoli est un module de parrainage shopify, permettent de générer un code privé des codes publiques pour votre parrain. À chaque utilisation des codes publique lors d'une commande, le code privé de votre parrain sera alors crédité.
+        content="Brocoli est un module de parrainage Shopify, permettant de générer un code privé pour vous et des codes publiques pour vos filleuls. À chaque utilisation du code publique lors d'une commande, le code privé du parrain sera alors crédité."
 
-        "
       />
     </Helmet>
   );
