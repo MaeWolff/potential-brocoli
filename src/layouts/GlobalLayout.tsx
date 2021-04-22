@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { Header } from "../components/index";
+import { Footer } from "../components/index";
 
 const Layout = styled.div`
   display: grid;
@@ -9,7 +10,8 @@ const Layout = styled.div`
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
     "Header Header Header"
-    ".      Main   .";
+    ".      Main        ."
+    ".      footer      .";
 `;
 
 const Main = styled.main<{ fullWidth?: boolean }>`
@@ -33,6 +35,7 @@ export default function GlobalLayout({ children, fullWidth }: Props) {
       <Header />
 
       <Main fullWidth={fullWidth}>{children}</Main>
+      <Footer />
     </Layout>
   );
 }
