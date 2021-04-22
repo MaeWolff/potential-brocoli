@@ -44,8 +44,30 @@ interface CredentialsShopifyFormValues {
 export default function DashboardPage() {
   const { user } = useUser();
 
-  function handleSubmit(values: CredentialsShopifyFormValues) {
-    console.log(values);
+  async function handleSubmit(values: CredentialsShopifyFormValues) {
+    try {
+      await axios.patch(
+        `http://localhost:3001/user/update-credentials`,
+        {
+          credentials: [
+            {
+              shop_name: values.shopifyName,
+              shop_password: values.shopifyPassword,
+              shop_apiKey: values.shopifyKey,
+            },
+          ],
+        },
+        {
+          headers: {
+            token: localStorage.getItem("userToken"),
+          },
+        }
+      );
+
+      MixPanel.track("Credentials shopify updated");
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   function handleLogout() {
@@ -133,15 +155,15 @@ export default function DashboardPage() {
                       touched={touched.shopifyKey}
                       error={errors.shopifyKey}
                     />
+
+                    <Spacer axis="vertical" size={1} />
+
+                    <Button size={ButtonSizeEnum.auto} type="submit">
+                      Valider mes informations
+                    </Button>
                   </Form>
                 )}
               </Formik>
-
-              <Spacer axis="vertical" size={1} />
-
-              <Button size={ButtonSizeEnum.auto} type="submit">
-                Valider mes informations
-              </Button>
             </CredentialsContainer>
           </Container>
         </>
