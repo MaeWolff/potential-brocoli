@@ -2,13 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import CheckedSVG from "../../../../assets/svg/CheckedSVG";
 import CrossSVG from "../../../../assets/svg/CrossSVG";
-import Spacer from "../../../base/Spacer";
+import { Spacer, Text } from "../../../index";
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  margin-left: 10px;
-  margin-right: 10px;
+  align-items: center;
+
+  svg {
+    width: 1em;
+    height: 1em;
+  }
 `;
 
 type LabelProps = {
@@ -21,11 +25,9 @@ const PriceLabel = ({ isLabelCross, label }: LabelProps) => {
     <Container>
       {isLabelCross ? <CrossSVG /> : <CheckedSVG />}
 
-      <Spacer axis="horizontal" size={1} />
+      <Spacer axis="horizontal" size={0.5} />
 
-      <p>{label}</p>
-
-      <Spacer axis="vertical" size={3} />
+      <Text>{label}</Text>
     </Container>
   );
 };

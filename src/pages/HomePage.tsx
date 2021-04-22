@@ -53,6 +53,7 @@ const HeroDiv = styled.div`
 `;
 
 const PricesSection = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -154,38 +155,46 @@ const checkout = window.Shopify.checkout
             width: "100%",
             display: "flex",
             flexDirection: "row",
-            justifyContent: "center",
+            justifyContent: "space-between",
           }}
         >
           <PriceCard name="Gratin de BROCOLI" price={0}>
             <>
               <PriceLabel label="5 parrainages" />
 
-              <PriceLabel label="Toutes les fonctionnalités" isLabelCross />
-
-              <PriceLabel label="Accès au SAV" isLabelCross />
-            </>
-          </PriceCard>
-
-          <Spacer axis="horizontal" size={2} />
-
-          <PriceCard name="Terrine de BROCOLI" price={4.99}>
-            <>
-              <PriceLabel label="50 parrainages" />
+              <Spacer axis="vertical" size={1} />
 
               <PriceLabel label="Toutes les fonctionnalités" />
+
+              <Spacer axis="vertical" size={1} />
 
               <PriceLabel label="Accès au SAV" />
             </>
           </PriceCard>
 
-          <Spacer axis="horizontal" size={2} />
+          <PriceCard name="Terrine de BROCOLI" price={4.99}>
+            <>
+              <PriceLabel label="50 parrainages" />
+
+              <Spacer axis="vertical" size={1} />
+
+              <PriceLabel label="Toutes les fonctionnalités" />
+
+              <Spacer axis="vertical" size={1} />
+
+              <PriceLabel label="Accès au SAV" />
+            </>
+          </PriceCard>
 
           <PriceCard name="Velouté de BROCOLI" price={9.99}>
             <>
               <PriceLabel label="Parrainages illimités" />
 
+              <Spacer axis="vertical" size={1} />
+
               <PriceLabel label="Toutes les fonctionnalités" />
+
+              <Spacer axis="vertical" size={1} />
 
               <PriceLabel label="Accès au SAV" />
             </>

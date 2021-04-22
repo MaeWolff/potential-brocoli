@@ -21,6 +21,7 @@ const Main = styled.main<{ fullWidth?: boolean }>`
   width: 100%;
   justify-items: center;
   padding: ${({ fullWidth }) => (fullWidth ? "0" : "0 var(--body-margin)")};
+  max-width: 90em;
 `;
 
 type Props = {
