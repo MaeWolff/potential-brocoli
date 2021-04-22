@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { ButtonSizeEnum } from "../components/base/Button";
@@ -103,10 +104,10 @@ export default function HomePage() {
         <pre>
           <code className="language-javascript">
             {`<script defer>
-const checkout = window.Shopify.checkout 
-            
+const checkout = window.Shopify.checkout
+     
 // Notre code ici 🥦   
-// Le script est directement récupérable dans votre 
+// Le script est directement récupérable dans votre
 // espace Brocoli
 </script>
 `}
@@ -201,8 +202,6 @@ const checkout = window.Shopify.checkout
           </PriceCard>
         </div>
       </PricesSection>
-
-      <Spacer axis="vertical" size={5} />
     </GlobalLayout>
   );
 }
