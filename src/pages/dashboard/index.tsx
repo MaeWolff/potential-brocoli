@@ -6,6 +6,7 @@ import AuthenticatedRoute from "../../layouts/AuthenticatedRoute";
 import GlobalLayout from "../../layouts/GlobalLayout";
 import {
   Spacer,
+  HeadTag,
   Text,
   TextLink,
   UserCredentials,
@@ -39,6 +40,7 @@ export default function DashboardPage() {
 
   return (
     <GlobalLayout>
+      <HeadTag title="Tableau de bord" />
       <AuthenticatedRoute>
         <>
           Bonjour {user?.email}, bienvenue dans le dashboard
