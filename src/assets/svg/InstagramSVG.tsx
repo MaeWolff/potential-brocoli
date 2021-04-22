@@ -1,4 +1,4 @@
-const Instagram = () => {
+export default function Instagram() {
   return (
     <svg
       width="22"
@@ -28,6 +28,4 @@ const Instagram = () => {
       </defs>
     </svg>
   );
-};
-
-export default Instagram;
+}

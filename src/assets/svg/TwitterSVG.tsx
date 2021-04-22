@@ -1,4 +1,4 @@
-const Twitter = () => {
+export default function Twitter() {
   return (
     <svg
       width="22"
@@ -13,6 +13,4 @@ const Twitter = () => {
       />
     </svg>
   );
-};
-
-export default Twitter;
+}

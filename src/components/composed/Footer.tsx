@@ -6,7 +6,7 @@ import TwitterSVG from "../../assets/svg/TwitterSVG";
 import Spacer from "../base/Spacer";
 
 const FooterContainer = styled.footer`
-  height: 35em;
+  height: 30em;
   width: 100%;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.black};
@@ -17,7 +17,7 @@ const FooterContainer = styled.footer`
   justify-content: center;
 `;
 
-const HeroFooterContainer = styled.footer`
+const HeroFooterContainer = styled.div`
   color: ${({ theme }) => theme.colors.white};
   display: flex;
   flex-direction: row;
@@ -45,10 +45,10 @@ const IconsWrapper = styled.ul`
   }
 `;
 
-const SectionFooterContainer = styled.footer`
+const SectionFooterContainer = styled.div`
   color: ${({ theme }) => theme.colors.grey};
   display: flex;
-  margin-top: 5em;
+  margin-top: 1em;
   margin-bottom: 5em;
   flex-direction: row;
   justify-content: space-between;
@@ -74,7 +74,6 @@ const FooterInformations = styled.footer`
     font-weight: 300;
     font-size: 0.8em;
     color: ${({ theme }) => theme.colors.grey};
-
     em {
       font-weight: 600;
     }
