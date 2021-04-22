@@ -159,11 +159,11 @@ const checkout = window.Shopify.checkout
         >
           <PriceCard name="Gratin de BROCOLI" price={0}>
             <>
-              <PriceLabel label="5 parrainages" isLabelCross />
+              <PriceLabel label="5 parrainages" />
 
-              <PriceLabel label="Toutes les fonctionnalités" />
+              <PriceLabel label="Toutes les fonctionnalités" isLabelCross />
 
-              <PriceLabel label="Accès au SAV" />
+              <PriceLabel label="Accès au SAV" isLabelCross />
             </>
           </PriceCard>
 
@@ -192,6 +192,8 @@ const checkout = window.Shopify.checkout
           </PriceCard>
         </div>
       </PricesSection>
+
+      <Spacer axis="vertical" size={5} />
     </GlobalLayout>
   );
 }

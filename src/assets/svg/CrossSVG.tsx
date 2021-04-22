@@ -1,6 +1,4 @@
-import React from "react";
-
-const CheckedSVG = () => {
+export default function CrossSVG() {
   return (
     <svg
       width="23"
@@ -15,6 +13,4 @@ const CheckedSVG = () => {
       />
     </svg>
   );
-};
-
-export default CheckedSVG;
+}
