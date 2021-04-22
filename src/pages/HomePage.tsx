@@ -94,6 +94,7 @@ export default function HomePage() {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
+          width: "100%",
         }}
       >
         <pre>
@@ -101,10 +102,9 @@ export default function HomePage() {
             {`<script defer>
 const checkout = window.Shopify.checkout 
             
-if (checkout.discount.code) {
-fetch("https://api.brocoli.io/customers/sponsor?discountCode",
-{ method: "PATCH", 
-)}
+// Notre code ici 🥦   
+// Le script est directement récupérable dans votre 
+// espace Brocoli
 </script>
 `}
           </code>
