@@ -123,9 +123,9 @@ const checkout = window.Shopify.checkout
           <Spacer axis="vertical" size={2} />
 
           <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fermentum
-            feugiat augue semper tempus sit id id porta elementum. Tellus donec
-            diam fames ut eget.
+            Le module est simple et rapide à mettre en place. Grâce à Brocoli
+            nous générons un script unique et adapté à votre boutique Shopify
+            depuis le dashboard.
           </Text>
 
           <Spacer axis="vertical" size={2} />
