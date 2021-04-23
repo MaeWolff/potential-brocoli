@@ -4,9 +4,8 @@ import {
   // SubscriptionName,
 } from "../validationSchemas/authValidationSchema";
 import { InputField, Button, ButtonSizeEnum, Spacer } from "../../index";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
-import { MixPanel } from "../../../common/utils/MixPanel";
+import fetchUserRegister from "../../../common/fetch/auth/fetchUserRegister";
 
 // enum SubscriptionNameLocaleEnum {
 //   GRATIN = "Gratin (gratuit)",
@@ -23,24 +22,14 @@ export default function RegisterForm() {
   const router = useHistory();
 
   async function handleSubmit(values: RegisterFormValues) {
-    try {
-      await axios.post(`http://localhost:3001/auth/register`, {
-        email: values.email,
-        password: values.password,
-        // subscription: values.subscription,
-      });
+    const body = {
+      email: values.email,
+      password: values.password,
+    };
 
-      MixPanel.identify(values.email);
-      MixPanel.track("Successful register");
-      MixPanel.people.set({
-        $email: values.email,
-      });
+    await fetchUserRegister(body);
 
-      router.push("/login");
-    } catch (err) {
-      MixPanel.track("Unsuccessful register");
-      console.log(err);
-    }
+    router.push("/login");
   }
 
   return (

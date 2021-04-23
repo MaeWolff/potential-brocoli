@@ -4,9 +4,7 @@ import { LoginValidationSchema } from "../validationSchemas/authValidationSchema
 import { InputField, Button, Spacer, ButtonSizeEnum } from "../../index";
 
 import { useHistory } from "react-router-dom";
-import axios from "axios";
-import { MixPanel } from "../../../common/utils/MixPanel";
-
+import fetchUserLogin from "../../../common/fetch/auth/fetchUserLogin";
 interface LoginFormValues {
   email: string;
   password: string;
@@ -16,31 +14,14 @@ export default function LoginForm() {
   const router = useHistory();
 
   async function handleSubmit(values: LoginFormValues) {
-    await axios
-      .post(`http://localhost:3001/auth/login`, {
-        email: values.email,
-        password: values.password,
-      })
-      .then(
-        (response) => {
-          const token = response.data.token;
+    const body = {
+      email: values.email,
+      password: values.password,
+    };
 
-          if (!token) {
-            console.log("authentification failed"); // TODO: set frontend message with UI
-          } else {
-            localStorage.setItem("userToken", token);
+    await fetchUserLogin(body);
 
-            MixPanel.identify(values.email);
-            MixPanel.track("Successful login");
-
-            router.push("/dashboard");
-          }
-        },
-        (error) => {
-          MixPanel.track("Unsuccessful login");
-          console.log(error);
-        }
-      );
+    router.push("/dashboard");
   }
 
   return (

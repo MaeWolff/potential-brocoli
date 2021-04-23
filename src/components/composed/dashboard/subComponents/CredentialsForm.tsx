@@ -14,6 +14,7 @@ import { MixPanel } from "../../../../common/utils/MixPanel";
 import { useState } from "react";
 import { FlexCenter } from "../../../../styles/config/mixins";
 import { CredentialsValidationSchema } from "../../../forms/validationSchemas/credentialsValidationSchema";
+import { apiHost } from "../../../../common/ApiRoutes";
 
 const ModalWrapper = styled.div`
   top: 0;
@@ -49,7 +50,7 @@ export default function CredentialsForm() {
   async function handleSubmit(values: CredentialsShopifyFormValues) {
     try {
       await axios.patch(
-        `http://localhost:3001/user/update-credentials`,
+        `${apiHost}/user/update-credentials`,
         {
           credentials: [
             {

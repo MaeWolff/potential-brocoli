@@ -19,6 +19,7 @@ import {
 import { ColorEnum } from "../../theme/ThemeEnums";
 import { MixPanel } from "../../common/utils/MixPanel";
 import { useEffect } from "react";
+import { apiHost } from "../../common/ApiRoutes";
 
 const Container = styled.div`
   width: 100%;
@@ -43,7 +44,7 @@ export default function DashboardPage() {
   }, []);
 
   function handleLogout() {
-    axios.get(`http://localhost:3001/auth/logout`);
+    axios.get(`${apiHost}/auth/logout`);
     localStorage.removeItem("userToken");
 
     // TODO: setup react-toastify?
