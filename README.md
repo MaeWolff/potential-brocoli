@@ -4,6 +4,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
+* [API Documentation](#api-documentation)
 * [Setup](#setup)
 
 ## General info
@@ -23,7 +24,7 @@ School project
 
   
 
-## API DOCUMENTATION (private)
+## API DOCUMENTATION
 (soon with swagger.io...)
 
 
