@@ -31,15 +31,15 @@ School project
 | route        | method      | description |
 | -------------|-------------|-------------|
 | AUTH         |     🔐         |     🔐        |
-| `/auth/register` | POST    |      	   |
-| `/auth/login`     | POST    |             |
+| `/auth/register` | POST    |    create new user  	   |
+| `/auth/login`     | POST    |     login user        |
 | USER             |     🕺    |       🕺        |
 | `/user/me`       | GET     | get user data connected      	   |
 | `/user/update-credentials`     | PATCH   |   update user table with credentials          |
-| CUSTOMER         |      🛍       | 🛍    |
-| `/customers/:id`     | GET   |             |
+| CUSTOMERS         |      🛍       | 🛍    |
+| `/customers/:id`     | GET   |      get customer data       |
 | `/customers/:id`     | POST   |      create customer       |
-| `/customers/sponsor`     | PATCH   |             |
+| `/customers/sponsor`     | PATCH   |        update sponsor customer code      |
 
 
 ## Setup
