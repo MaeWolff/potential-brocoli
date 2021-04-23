@@ -18,11 +18,29 @@ School project
 * Axios (to fetch data)
 
 ### Backend
-see the repository [here](/)
-* NodeJS
+* NodeJS / Express
 * Mongoose
 
   
+
+## API DOCUMENTATION (private)
+(soon with swagger.io...)
+
+
+| route        | method      | description |
+| -------------|-------------|-------------|
+| AUTH         |     🔐         |     🔐        |
+| `/auth/register` | POST    |      	   |
+| `auth/login`     | POST    |             |
+| USER             |     🕺    |       🕺        |
+| `/user/me`       | GET     | get user data connected      	   |
+| `/user/update-credentials`     | PATCH   |   update user table with credentials          |
+| CUSTOMER         |      🛍       | 🛍    |
+| `/customers/:id`     | GET   |             |
+| `/customers/:id`     | POST   |      create customer       |
+| `customers/sponsor`     | PATCH   |             |
+
+
 ## Setup
 To run this project, install it locally using npm:
 
