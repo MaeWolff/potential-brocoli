@@ -41,7 +41,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     Prism.highlightAll();
-  }, []);
+  }, [user]);
 
   function handleLogout() {
     axios.get(`${apiHost}/auth/logout`);
