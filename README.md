@@ -32,14 +32,14 @@ School project
 | -------------|-------------|-------------|
 | AUTH         |     🔐         |     🔐        |
 | `/auth/register` | POST    |      	   |
-| `auth/login`     | POST    |             |
+| `/auth/login`     | POST    |             |
 | USER             |     🕺    |       🕺        |
 | `/user/me`       | GET     | get user data connected      	   |
 | `/user/update-credentials`     | PATCH   |   update user table with credentials          |
 | CUSTOMER         |      🛍       | 🛍    |
 | `/customers/:id`     | GET   |             |
 | `/customers/:id`     | POST   |      create customer       |
-| `customers/sponsor`     | PATCH   |             |
+| `/customers/sponsor`     | PATCH   |             |
 
 
 ## Setup
