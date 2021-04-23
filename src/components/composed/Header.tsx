@@ -41,25 +41,6 @@ const LinksWrapper = styled.ul`
   }
 `;
 
-const DropDownWrapper = styled.ul`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-`;
-
-const DropDownArrow = styled.div`
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  right: -0.8em;
-  width: 0.4em;
-  height: 0.4em;
-  border-left: 0.4em solid transparent;
-  border-right: 0.4em solid transparent;
-  border-top: 0.4em solid;
-  transform: translate(50%, -35%);
-`;
-
 const UserProfile = styled.div`
   width: 2.5em;
   height: 2.5em;
@@ -70,7 +51,6 @@ const UserProfile = styled.div`
 `;
 
 export default function Header() {
-  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const { user } = useUser();
 
   return (
@@ -84,22 +64,8 @@ export default function Header() {
           <li>
             <a href="/pricing">Prix</a>
           </li>
-          <li
-            onMouseEnter={() => setIsDropDownOpen(true)}
-            onMouseLeave={() => setIsDropDownOpen(false)}
-          >
-            <a href="/">Développeur</a>
-            <DropDownArrow />
-            {isDropDownOpen && (
-              <DropDownWrapper>
-                <li>
-                  <a href="/">Documentation</a>
-                </li>
-                <li>
-                  <a href="/">Status</a>
-                </li>
-              </DropDownWrapper>
-            )}
+          <li>
+            <a href="/">Tutoriel</a>
           </li>
         </LinksWrapper>
       </nav>
