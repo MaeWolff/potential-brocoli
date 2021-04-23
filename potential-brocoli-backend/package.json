@@ -1,0 +1,37 @@
+{
+  "name": "potential-brocoli-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaevaWolff/potential-brocoli-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaevaWolff/potential-brocoli-backend/issues"
+  },
+  "homepage": "https://github.com/MaevaWolff/potential-brocoli-backend#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.12.3",
+    "randomstring": "^1.1.5",
+    "remove-accents": "^0.4.2",
+    "shopify-api-node": "^3.6.0",
+    "uuidv4": "^6.2.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

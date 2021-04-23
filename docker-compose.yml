@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  backend:
+    env_file:
+        "./potential-brocoli-backend/.env"
+    build:
+      context: ./potential-brocoli-backend
+      dockerfile: ./Dockerfile
+    image: brocoli/back-docker
+    ports:
+      - "8080:8080"
+  frontend:
+    build:
+      context: ./potential-brocoli-frontend
+      dockerfile: ./Dockerfile
+    image: brocoli/front-docker
+    ports:
+      - "3000:3000"
+    links:
+      - "backend"
