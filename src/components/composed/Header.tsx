@@ -82,7 +82,7 @@ export default function Header() {
             <a href="/">Produit</a>
           </li>
           <li>
-            <a href="/">Prix</a>
+            <a href="/pricing">Prix</a>
           </li>
           <li
             onMouseEnter={() => setIsDropDownOpen(true)}

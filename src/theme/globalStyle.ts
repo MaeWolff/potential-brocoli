@@ -56,6 +56,12 @@ body {
   line-height: 1.5rem;
 }
 
+h1 {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 2.25rem;
+}
+
 h2 {
   font-size: 1.25rem;
   line-height: 1.75rem;
