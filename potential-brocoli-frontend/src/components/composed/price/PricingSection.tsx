@@ -18,11 +18,11 @@ export default function PricingSection() {
 
           <Spacer axis="vertical" size={1} />
 
-          <PriceLabel label="Toutes les fonctionnalités" />
+          <PriceLabel label="Toutes les fonctionnalités" isLabelCross />
 
           <Spacer axis="vertical" size={1} />
 
-          <PriceLabel label="Accès au SAV" />
+          <PriceLabel label="Accès au SAV" isLabelCross />
         </>
       </PriceCard>
 
